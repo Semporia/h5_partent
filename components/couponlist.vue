@@ -116,7 +116,7 @@
 </script>
 
 <style>
-.coupon{display:-webkit-box;display:-webkit-flex;display:flex;width:9.38667rem;height:2.4rem;margin:0 auto .26667rem;color:#fff;-webkit-align-content:center;align-content:center;background:url(@/static/img/coupon2.png) no-repeat 0/100%;}
+.coupon{display:-webkit-box;display:-webkit-flex;display:flex;width:9.38667rem;height:2.4rem;margin:0 auto .26667rem;color:#fff;-webkit-align-content:center;align-content:center;background:url(@/static/img/coupon.red.png) no-repeat 0/100%;}
 .coupon .left{-webkit-box-flex:11;-webkit-flex:11;flex:11;padding-top:.13333rem;}
 .coupon .left p{text-align:center;}
 .coupon .left .num{line-height:1.0rem;margin-bottom:.08rem;font-size:.63333rem;}

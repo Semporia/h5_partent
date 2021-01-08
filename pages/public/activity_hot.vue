@@ -13,7 +13,7 @@
           <view class="right ft12" @click="getActivity(activity)">立即领取</view>
         </view>
         <p class="black ft18">活动优惠券</p>
-        <view role="feed" class="merchantList van-list">
+        <view role="feed padding" class="merchantList van-list">
           <view class="merchant">
 
             <view v-for="(coupon,c_index) in activity_coupons" :key="c_index">
@@ -52,13 +52,16 @@
 							</view>
 						</view> -->
 
-            <p class="ft16">服务门店</p>
-            <view class="store">
-              <view class="logo"><img :src="shop.shop_pic"></view>
-              <view class="detail">
-                <p class="name ft16 van-multi-ellipsis--l2">{{shop.shop_name}}</p>
-                <p class="address van-ellipsis ft10">{{shop.address}}</p>
-                <view class="ft14">电话：{{shop.tel}}</view>
+            <view class="ft16 padding-bottom-xs margin-top margin-bottom solid-bottom">
+              <icon class="icon-store text-green margin-right-xs" type="门店"></icon>服务门店</view>
+            <view class="store padding flex">
+              <view class="logo flex-sub"><img :src="shop.shop_pic"></view>
+              <view class="detail padding-top">
+                <view class="name ft16 van-multi-ellipsis--l2">{{shop.shop_name}}</view>
+                <view class="ft14 padding-top-sm">
+                  <icon class="icon-phone text-green margin-right-xs" type="电话"></icon>电话：{{shop.tel}}</view>
+                <view class="address van-ellipsis ft10">
+                  <icon class="icon-dizhi text-orange margin-right-xs" type="地址"></icon>{{shop.address}}</view>
               </view>
             </view>
 
@@ -68,10 +71,13 @@
 						</view> -->
           </view>
           <view class="x-content">
-            <view class="ft16 Details">活动详情</view>
+            <view class="ft16 Details padding-bottom-xs margin-top margin-bottom solid-bottom">
+              <icon class="icon-huodong text-orange margin-right-xs" type="活动详情"></icon>活动详情</view>
           </view>
-           <view class="x-content" v-html="activity.content"></view>
-          <view class="van-list__placeholder"></view>
+          <view class="x-content margin-top margin-bottom" v-html="activity.content"></view>
+          
+          <view class="van-list__finished-text padding-bottom text-center">————————· 我是有底线的 ·————————</view>
+          <view class="van-list__placeholder padding-bottom"></view>
         </view>
 
 
@@ -172,7 +178,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .x-line {
     width: 100%;
     height: 10px;
@@ -301,10 +307,10 @@
     width: 9.38667rem;
     height: 2.4rem;
     margin: 0 auto .26667rem;
-    color: var(--text-color);
+    color: #FFFFFF !important;
     -webkit-align-content: center;
     align-content: center;
-    background: url(https://www.czg365.com/static/img/coupon.72be727b.png) no-repeat 0/100%;
+    background: url(../../static/img/coupon.red.png) no-repeat 0/100%;
   }
 
   .coupon .left {
@@ -373,13 +379,14 @@
   #privilegeCenter .member {
     height: 3.6rem;
     padding: 0 .53333rem;
+    color: #FFFFFF;
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     justify-content: space-between;
-    background: url(https://www.czg365.com/static/img/head.0ee9ae8a.jpg) no-repeat 0 -1.73333rem/100% auto;
+    background: url(../../static/img/head.bg.png) no-repeat 0 -1.73333rem/100% auto;
   }
 
   #privilegeCenter .member .left {
@@ -402,12 +409,14 @@
     border: .02667rem solid var(--border-color);
     border-radius: 50%;
   }
-@media (prefers-color-scheme: dark) {
+
+  @media (prefers-color-scheme: dark) {
     #privilegeCenter .member .left .logo img {
       -webkit-filter: brightness(0) invert(1);
       filter: brightness(0) invert(1);
     }
   }
+
   #privilegeCenter .member .left .text {
     vertical-align: middle;
     margin-left: .21333rem;
@@ -436,7 +445,7 @@
     width: 8.21333rem;
     height: .48rem;
     margin: -1.06667rem auto .8rem;
-    color: var(--text-color);
+    color: #FFFFFF;
     text-align: center;
   }
 
@@ -450,7 +459,6 @@
   #privilegeCenter .merchantList .merchant {
     width: 9.33333rem;
     margin: .21333rem auto 0;
-    border: .02667rem solid var(--border-color);
     border-radius: .08rem;
   }
 
@@ -464,7 +472,7 @@
     color: var(--text-color);
     -webkit-align-content: center;
     align-content: center;
-    background: url(https://www.czg365.com/static/img/coupon.72be727b.png) no-repeat 0/100%;
+    background: url(../../static/img/coupon.red.png) no-repeat 0/100%;
   }
 
   #privilegeCenter .merchantList .merchant .coupon .left {
@@ -527,14 +535,11 @@
     line-height: .42667rem;
   }
 
-  #privilegeCenter .merchantList .merchant>.ft16 {
-    height: .8rem;
-    padding: .4rem 0 0 .32rem;
-  }
-
   #privilegeCenter .merchantList .merchant .store {
     position: relative;
-    padding: .26667rem .16rem .26667rem .26667rem;
+    background-color: var(--Highlight-background-color);
+    border: .02667rem solid var(--border-color);
+    border-radius: 10upx;
   }
 
   #privilegeCenter .merchantList .merchant .store>view {
@@ -542,8 +547,8 @@
   }
 
   #privilegeCenter .merchantList .merchant .store .logo {
-    width: 2.13333rem;
-    height: 2.13333rem;
+    width: auto;
+    height: auto;
   }
 
   #privilegeCenter .merchantList .merchant .store .logo img {
@@ -551,26 +556,29 @@
     height: 100%;
   }
 
+  @media (prefers-color-scheme: dark) {
+    #privilegeCenter .merchantList .merchant .store .logo img {
+      -webkit-filter: brightness(0) invert(1);
+      filter: brightness(0) invert(1);
+    }
+  }
+
   #privilegeCenter .merchantList .merchant .store .detail {
-    width: 6.53333rem;
-    height: 2.13333rem;
-    margin: .02667rem 0 0 .21333rem;
+    width: 60%;
     text-align: justify;
     vertical-align: top;
   }
 
   #privilegeCenter .merchantList .merchant .store .detail .name {
-    width: 5.86667rem;
-    line-height: .58667rem;
+    width: 100%;
   }
 
   #privilegeCenter .merchantList .merchant .store .detail .address {
     position: absolute;
-    width: 5.46667rem;
-    bottom: .26667rem;
+    bottom: .9rem;
     line-height: .37333rem;
     vertical-align: bottom;
-    color: #9e9e9e;
+    color: var(--text-color);
   }
 
   #privilegeCenter .merchantList .merchant .store .detail .goStore {
@@ -590,10 +598,7 @@
     text-align: center;
     color: #323232;
   }
-  
-  
-  .Details{
-    color: var(--text-color);
-    border-left-color: #f9826c
-  }
+
+
+  .x-content image{border-radius: 10upx;}
 </style>

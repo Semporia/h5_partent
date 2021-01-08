@@ -91,7 +91,7 @@
 .ft18{font-size:.48rem;}
 .verticalcenter{position:relative;top:50%;-webkit-transform:translateY(-50%);transform:translateY(-50%);}
 #app{width:100%;height:100%;}
-.coupon{display:-webkit-box;display:-webkit-flex;display:flex;width:9.38667rem;height:2.4rem;margin:0 auto .26667rem;color:#fff;-webkit-align-content:center;align-content:center;background:url(../../static/img/coupon2.png) no-repeat 0/100%;}
+.coupon{display:-webkit-box;display:-webkit-flex;display:flex;width:9.38667rem;height:2.4rem;margin:0 auto .26667rem;color:#fff;-webkit-align-content:center;align-content:center;background:url(../../static/img/coupon.red.png) no-repeat 0/100%;}
 .coupon .left{-webkit-box-flex:11;-webkit-flex:11;flex:11;padding-top:.13333rem;}
 .coupon .left p{text-align:center;}
 .coupon .left .num{line-height:1.33333rem;margin-bottom:.08rem;font-size:.93333rem;}
