@@ -128,10 +128,6 @@ img{display:block;width:100%;font-size:0;}
 .van-tabs--line .van-tabs__wrap{height:1.17333rem;}
 .van-tab__pane{-webkit-flex-shrink:0;flex-shrink:0;box-sizing:border-box;width:100%;}
 
-.menu-tabbar{position:fixed;bottom:0;height:1.33333rem;color:#484848;background:#fff;}
-.menu-tabbar .menu-inner{height:1.06667rem;line-height:.42667rem;}
-.menu-tabbar .active .menu-inner{color:#2599ff;}
-.menu-tabbar .menu-icon{width:.58667rem;height:.58667rem;margin:0 auto .10667rem;}
 
 .van-tab__pane{-webkit-flex-shrink:0;flex-shrink:0;box-sizing:border-box;width:100%;}
 .van-tab{position:relative;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-align:center;-webkit-align-items:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;justify-content:center;-webkit-box-flex:1;-webkit-flex:1;flex:1;box-sizing:border-box;padding:0 .10667rem;color:#646566;font-size:.37333rem;cursor:pointer;}
@@ -160,10 +156,7 @@ ul{margin:0;padding:0;list-style:none;}
 .van-tabs__line{position:absolute;bottom:.4rem;left:0;z-index:1;height:.08rem;background-color:#ee0a24;border-radius:.08rem;}
 .van-tabs--line .van-tabs__wrap{height:1.17333rem;}
 .van-tab__pane{-webkit-flex-shrink:0;flex-shrink:0;box-sizing:border-box;width:100%;}
-.menu-tabbar{position:fixed;bottom:0;height:1.33333rem;color:#484848;background:#fff;}
-.menu-tabbar .menu-inner{height:1.06667rem;line-height:.42667rem;}
-.menu-tabbar .active .menu-inner{color:#2599ff;}
-.menu-tabbar .menu-icon{width:.58667rem;height:.58667rem;margin:0 auto .10667rem;}
+
 .order-item{margin:.26667rem auto 0;width:9.41333rem;box-sizing:border-box;padding:0 .4rem;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;flex-direction:column;font-size:.37333rem;background-color:#fff;border-radius:.13333rem;}
 .order-item .top{display:-webkit-box;display:-webkit-flex;display:flex;height:1.06667rem;-webkit-box-align:center;-webkit-align-items:center;align-items:center;}
 .order-item .center{display:-webkit-box;display:-webkit-flex;display:flex;padding:.13333rem 0 .4rem;border-bottom:.01333rem solid #eee;}

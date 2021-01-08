@@ -220,14 +220,18 @@ img{display:block;width:100%;font-size:0;}
 .coupon .center .ft12{line-height:.42667rem;}
 .coupon .center .couponDetailBtn{position:absolute;left:3.46667rem;top:1.6rem;width:1.6rem;height:.53333rem;background-color:#fff;border-radius:.32rem;color:#ff3c46;text-align:center;line-height:.53333rem;}
 .coupon .right{-webkit-box-flex:6;-webkit-flex:6;flex:6;text-align:center;line-height:.42667rem;}
- .menu-tabbar {position:fixed;bottom:0;height:1.33333rem;color:#484848;background:#fff;}
-.menu-tabbar .menu-inner {height:1.06667rem;line-height:.42667rem;}
-.menu-tabbar .menu-icon {width:.58667rem;height:.58667rem;margin:0 auto .10667rem;}
+
 #privilegeCenter .member{height:3.6rem;padding:0 .53333rem;display:-webkit-box;display:-webkit-flex;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;background:url(https://www.czg365.com/static/img/head.0ee9ae8a.jpg) no-repeat 0 -1.73333rem/100% auto;}
 #privilegeCenter .member .left{margin-top:.53333rem;}
 #privilegeCenter .member .left > view{display:inline-block;}
 #privilegeCenter .member .left .logo{width:1.06667rem;height:1.06667rem;vertical-align:middle;}
 #privilegeCenter .member .left .logo img{width:100%;height:100%;border:.02667rem solid #fff;border-radius:50%;}
+@media (prefers-color-scheme: dark) {
+    #privilegeCenter .member .left .logo img {
+      -webkit-filter: brightness(0) invert(1);
+      filter: brightness(0) invert(1);
+    }
+  }
 #privilegeCenter .member .left .text{vertical-align:middle;margin-left:.21333rem;}
 #privilegeCenter .member .left .text .name{line-height:.58667rem;}
 #privilegeCenter .member .left .text .endTime{line-height:.37333rem;}

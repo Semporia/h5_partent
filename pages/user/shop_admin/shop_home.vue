@@ -352,51 +352,7 @@
 		background-size: .37333rem .37333rem;
 	}
 
-	.menu-tabbar {
-		position: fixed;
-		bottom: 0;
-		height: 1.33333rem;
-		color: #484848;
-		background: #fff;
-	}
-
-	.menu-tabbar .menu-inner {
-		height: 1.06667rem;
-		line-height: .42667rem;
-	}
-
-	.menu-tabbar .active .menu-inner {
-		color: #2599ff;
-	}
-
-	.menu-tabbar .menu-icon {
-		width: .58667rem;
-		height: .58667rem;
-		margin: 0 auto .10667rem;
-	}
-
-	.menu-tabbar {
-		position: fixed;
-		bottom: 0;
-		height: 1.33333rem;
-		color: #484848;
-		background: #fff;
-	}
-
-	.menu-tabbar .menu-inner {
-		height: 1.06667rem;
-		line-height: .42667rem;
-	}
-
-	.menu-tabbar .active .menu-inner {
-		color: #2599ff;
-	}
-
-	.menu-tabbar .menu-icon {
-		width: .58667rem;
-		height: .58667rem;
-		margin: 0 auto .10667rem;
-	}
+	
 
 	.my-info {
 		height: 2.82667rem;
