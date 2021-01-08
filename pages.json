@@ -1,0 +1,348 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	
+	
+	
+		{
+            "path" : "pages/user/home",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "用户中心",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+		{
+		    "path": "pages/login/login",
+		    "style" :
+		    {
+		        "navigationBarTitleText": "用户登录",
+		        "enablePullDownRefresh": false
+		    }
+		}, {
+		    "path": "pages/login/forget",
+		    "style" :
+		    {
+		        "navigationBarTitleText": "忘记密码",
+		        "enablePullDownRefresh": false
+		    }
+		}, {
+		    "path": "pages/login/register",
+		    "style" :
+		    {
+		        "navigationBarTitleText": "用户注册",
+		        "enablePullDownRefresh": false
+		    }
+		} ,
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		}
+		,
+        {
+            "path" : "pages/user/partner/partner_customers",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的顾客",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/partner/partner_accounts",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的账单",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/coupons",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的优惠券",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/accounts",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的账单",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/partner/account_query",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我的钱包",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/partner/balance",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "资金流水",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/partner/withdrawal_record",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "提现记录",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/my_activitys",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "我参加的活动",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/public/bind_fans",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "确认邀请码",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/setting/renz",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "个人认证",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/public/join",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "加入合伙人",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/setting/update_info",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "更新资料",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/public/coupon_detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "优惠券详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/public/activity_detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "活动详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/shop_admin/shop_customers",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "店铺顾客",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/shop_admin/shop_home",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "店铺中心",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/shop_admin/shop_coupons",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "发放的优惠券",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/partner/partner_home",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "合伙人用户中心",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/setting/index",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "设置",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/setting/update_password",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "设置密码",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/public/activity_list",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "活动列表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/shop_admin/shop_cashier",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "店铺收银台",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/shop_admin/shop_set_partner",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "设置合伙人",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/shop_admin/shop_partner_query",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "店铺合伙人",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/shop_admin/shop_show_partners",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "店铺合伙人列表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/shop_admin/coupons",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "发放的卡券",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/shop_admin/shop_activitys",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "店铺活动",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/shop_admin/shop_setting",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "店铺设置",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/shop_admin/shop_accounts",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "店铺账单",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/shop_admin/shop_activity_query",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "活动管理",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/shop_admin/shop_activity_add",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "新建活动",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/shop_admin/shop_coupon_add",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "新增优惠券",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/public/activity_hot",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "热门活动",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}
