@@ -156,7 +156,7 @@
 
   .my-menu-list .item .item-left .text {
     margin-left: .32rem;
-    color: #343434;
+    color: var(--text-color);
     font-size: .37333rem;
     text-align: left;
     font-family: PingFangSC-Medium;

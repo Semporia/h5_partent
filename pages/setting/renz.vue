@@ -166,7 +166,7 @@
     width: 100%;
     padding: .26667rem .42667rem;
     overflow: hidden;
-    color: #323233;
+    color: var(--text-color);
     font-size: .37333rem;
     line-height: .64rem;
     background-color: var(--Highlight-background-color);
@@ -202,7 +202,7 @@
   }
 
   .van-cell__value--alone {
-    color: #323233;
+    color: var(--text-color);
     text-align: left;
   }
 
@@ -242,7 +242,7 @@
     min-width: 0;
     margin: 0;
     padding: 0;
-    color: #323233;
+    color: var(--text-color);
     line-height: inherit;
     text-align: left;
     background-color: initial;
@@ -410,7 +410,7 @@
 
   .van-radio__label {
     margin-left: .21333rem;
-    color: #323233;
+    color: var(--text-color);
     line-height: .53333rem;
   }
 
@@ -511,7 +511,7 @@
 
   /*! CSS Used from: https://www.czg365.com/static/css/chunk-54b91d2a.1d60729e.css */
   .formWrap {
-    background: #fff;
+    background-color: var(--Highlight-background-color);
     margin: 0;
   }
 
@@ -535,12 +535,12 @@
   }
 
   .incoming .headText .ft20 {
-    color: #353535;
+    color: var(--text-color);
     line-height: .74667rem;
   }
 
   .incoming .headText .ft13 {
-    color: #727272;
+    color: var(--text-color);
     line-height: .48rem;
   }
 
@@ -577,7 +577,7 @@
 
   .incoming .cameraWarp .camera .ft12 {
     margin-top: 2.88rem;
-    color: #5b5b5b;
+    color: var(--text-color);
     text-align: center;
   }
 
@@ -617,7 +617,7 @@
   }
 
   .incoming .van-form .van-cell .van-cell__title {
-    color: #303030;
+    color: var(--text-color);
     font-size: .42667rem;
   }
 

@@ -241,7 +241,7 @@
   }
 
   .van-tab--active {
-    color: #323233;
+    color: var(--text-color);
     font-weight: 500;
   }
 
@@ -327,7 +327,7 @@
   }
 
   .van-tab--active {
-    color: #323233;
+    color: var(--text-color);
     font-weight: 500;
   }
 
@@ -430,7 +430,7 @@
   }
 
   .van-tab--active {
-    color: #323233;
+    color: var(--text-color);
     font-weight: 500;
   }
 

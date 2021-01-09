@@ -1293,7 +1293,7 @@
 		position: fixed !important;
 		box-sizing: border-box;
 		border: 1px solid #F1F1F1;
-		background: #ffffff;
+		background-color: var(--Highlight-background-color);
 		width: 100%;
 		left: 0;
 		bottom: 0;

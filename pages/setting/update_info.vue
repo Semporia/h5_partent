@@ -2,7 +2,7 @@
 	<view>
 		<view id="app">
 			<view class="formWrap">
-				<view class="update-headimg">
+				<view class="update-headimg padding">
 					<avatar  class="x-head-img"
 						selWidth="200px" selHeight="200px" @upload="myUpload" :avatarSrc="user.headimgurl"
 						avatarStyle="width: 200upx; height: 200upx; border-radius: 100%;">
@@ -114,10 +114,9 @@
 
 <style>
 	.update-headimg{
-		width: 100%;
+		width: auto;
 		text-align:center ;
-		padding: 10px;
-		background: #FFF;
+		background-color: var(--Highlight-background-color);
 		
 	}
 	.x-head-img{
@@ -142,7 +141,7 @@
 		width: 100%;
 		padding: .26667rem .42667rem;
 		overflow: hidden;
-		color: #323233;
+		color: var(--text-color);
 		font-size: .37333rem;
 		line-height: .64rem;
 		background: var(--Highlight-background-color);
@@ -205,7 +204,7 @@
 		min-width: 0;
 		margin: 0;
 		padding: 0;
-		color: #323233;
+		color: var(--text-color);
 		line-height: inherit;
 		text-align: left;
 		background-color: initial;
@@ -305,18 +304,9 @@
 	[class*=van-]:focus,
 	button:focus,
 	input:focus {
-		outline: none;
+		outline:   none;
 	}
 
-	* {
-		margin: 0;
-		padding: 0;
-	}
-
-	* button,
-	* input {
-		border: none;
-	}
 
 	input {
 		outline: none;
@@ -342,7 +332,6 @@
 	}
 
 	.formWrap {
-		margin-top: .26667rem;
 	}
 
 	.formWrap .van-cell .van-cell__title {

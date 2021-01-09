@@ -524,7 +524,7 @@
 		margin: .26667rem auto;
 		padding: .4rem .34667rem;
 		height: 2.21333rem;
-		background: #fff;
+		background-color: var(--Highlight-background-color);
 		color: #999;
 	}
 

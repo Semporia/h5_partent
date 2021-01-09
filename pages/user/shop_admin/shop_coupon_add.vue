@@ -230,7 +230,7 @@
 <style>
 	.coupon-note {
 		width: 100%;
-		background: #FFF;
+		background-color: var(--Highlight-background-color);
 	}
 
 	.activity-fimg {
@@ -263,7 +263,7 @@
 		width: 100%;
 		padding: .26667rem .42667rem;
 		overflow: hidden;
-		color: #323233;
+		color: var(--text-color);
 		font-size: .37333rem;
 		line-height: .64rem;
 		background: var(--Highlight-background-color);
@@ -326,7 +326,7 @@
 		min-width: 0;
 		margin: 0;
 		padding: 0;
-		color: #323233;
+		color: var(--text-color);
 		line-height: inherit;
 		text-align: left;
 		background-color: initial;
