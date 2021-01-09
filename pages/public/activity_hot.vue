@@ -358,7 +358,7 @@
     top: 1.6rem;
     width: 1.6rem;
     height: .53333rem;
-    background-color: var(--btn-color);
+    background-color: var(--btn-backgroud-color);
     border-radius: .32rem;
     color: var(-btn-text-color);
     text-align: center;
@@ -520,7 +520,7 @@
     top: 1.6rem;
     width: 1.6rem;
     height: .53333rem;
-    background: var(--Highlight-background-color);
+    background: var(--btn-backgroud-color);
     border-radius: .32rem;
     color: #ff3c46;
     text-align: center;
