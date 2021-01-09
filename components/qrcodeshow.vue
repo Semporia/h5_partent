@@ -60,7 +60,7 @@
 	background-color: rgba(0,0,0,.7);
 }
 	
-.van-popup{position:fixed;max-height:100%;overflow-y:auto;background-color:#fff;-webkit-transition:-webkit-transform .3s;transition:-webkit-transform .3s;transition:transform .3s;transition:transform .3s,-webkit-transform .3s;-webkit-overflow-scrolling:touch;}
+.van-popup{position:fixed;max-height:100%;overflow-y:auto;background-color: (--Highlight-background-color);-webkit-transition:-webkit-transform .3s;transition:-webkit-transform .3s;transition:transform .3s;transition:transform .3s,-webkit-transform .3s;-webkit-overflow-scrolling:touch;}
 .van-popup--center{top:50%;left:50%;-webkit-transform:translate3d(-50%,-50%,0);transform:translate3d(-50%,-50%,0);}
 #qrcode img{display:block;width:100%;font-size:0;}
 #qrcode{padding:.26667rem;}

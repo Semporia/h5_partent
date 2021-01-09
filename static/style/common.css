@@ -4,7 +4,7 @@ body {
   height: 100%;
   margin: 0;
   color: var(--text-color);
-  background-color: var(--Default-background-color)!important;
+  background-color: var(--Default-background-color) !important;
   font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica, Segoe UI, Arial, Roboto, PingFang SC, Hiragino Sans GB, Microsoft Yahei, sans-serif;
 }
 
@@ -16,479 +16,481 @@ body {
 /* 活动列表 */
 
 #app {
-    width: 100%;
-    height: 100%;
-  }
+  width: 100%;
+  height: 100%;
+}
 
-  .mealList {
-    padding: 15px;
-    margin: .26667rem auto;
-    box-sizing: border-box;
-  }
+.mealList {
+  padding: 15px;
+  margin: .26667rem auto;
+  box-sizing: border-box;
+}
 
-  .mealList .mealCard {
-    margin-bottom: .4rem;
-    border-radius: .13333rem;
-    overflow: hidden;
-    color: var(--text-active-color);
-    background: var(--Highlight-background-color);
-    border: 1px solid var(--border-color);
-  }
+.mealList .mealCard {
+  margin-bottom: .4rem;
+  border-radius: .13333rem;
+  overflow: hidden;
+  color: var(--text-active-color);
+  background: var(--Highlight-background-color);
+  border: 1px solid var(--border-color);
+}
 
-  .mealList .mealCard .mealTitle .title{
-    width: auto;
-    color: var(--text-color);
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-weight: 700;
-  }
+.mealList .mealCard .mealTitle .title {
+  width: auto;
+  color: var(--text-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 700;
+}
 
-  .mealList .mealCard .mealTitle .right {
-    font-size: .29333rem;
-    text-align: right;
-  }
-  
-  [class*=van-]:focus {
-    outline: 0;
-  }
-  
-  .van-list__finished-text {
-    color: var(--tetx-color);
-    font-size: .37333rem;
-    line-height: 1.33333rem;
-    text-align: center;
-  }
-  
-  .van-list__placeholder {
-    height: 0;
-    pointer-events: none;
-  }
-  
-  [class*=van-]:focus {
-    outline: none;
-  }
-  
-  /* 活动详情 */
-  .x-line {
-    width: 100%;
-    height: 10px;
-  }
-  
-  
-  [class*=van-]:focus {
-    outline: 0;
-  }
-  
-  .van-list__placeholder {
-    height: 0;
-    pointer-events: none;
-  }
-  
-  [class*=van-]:focus {
-    outline: none;
-  }
-  
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  
-  .van-ellipsis {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
-  
-  .van-multi-ellipsis--l2 {
-    -webkit-line-clamp: 2;
-  }
-  
-  .van-multi-ellipsis--l2 {
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-box-orient: vertical;
-  }
-  
-  .pb50 {
-    padding-bottom: 1.33333rem;
-  }
-  
-  img {
-    display: block;
-    width: 100%;
-    font-size: 0;
-  }
-  
-  .ft10 {
-    font-size: .26667rem;
-  }
-  
-  .ft12 {
-    font-size: .32rem;
-  }
-  
-  .ft14 {
-    font-size: .37333rem;
-  }
-  
-  .ft16 {
-    font-size: .42667rem;
-  }
-  
-  .ft18 {
-    font-size: .48rem;
-  }
-  
-  .flex {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-  }
-  
-  .flex-1 {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-    flex: 1;
-  }
-  
-  .flex-1 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-  }
-  
-  .flex-center {
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-  }
-  
-  .flex-center {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-  }
-  
-  .w-100 {
-    width: 100%;
-  }
-  
-  .verticalcenter {
-    position: relative;
-    top: 50%;
-    -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
-  
-  #app {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .coupon {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    width: 9.38667rem;
-    height: 2.4rem;
-    margin: 0 auto .26667rem;
-    color: #FFFFFF !important;
-    -webkit-align-content: center;
-    align-content: center;
-    background: url('static/img/coupon.red.png') no-repeat 0/100%;
-  }
-  
-  .coupon .left {
-    -webkit-box-flex: 11;
-    -webkit-flex: 11;
-    flex: 11;
-    padding-top: .13333rem;
-  }
-  
-  .coupon .left p {
-    text-align: center;
-  }
-  
-  .coupon .left .num {
-    line-height: 1.33333rem;
-    margin-bottom: .08rem;
-    font-size: .93333rem;
-  }
-  
-  .coupon .center {
-    position: relative;
-    -webkit-box-flex: 25;
-    -webkit-flex: 25;
-    flex: 25;
-    padding: .24rem 0 0 .21333rem;
-  }
-  
-  .coupon .center .couponName {
-    width: 4.93333rem;
-    margin-bottom: .08rem;
-    line-height: .66667rem;
-  }
-  
-  .coupon .center .ft10 {
-    line-height: .37333rem;
-  }
-  
-  .coupon .center .ft12 {
-    line-height: .42667rem;
-  }
-  
-  .coupon .center .couponDetailBtn {
-    position: absolute;
-    left: 3.46667rem;
-    top: 1.6rem;
-    width: 1.6rem;
-    height: .53333rem;
-    background-color: var(--btn-color);
-    border-radius: .32rem;
-    color: var(-btn-text-color);
-    text-align: center;
-    line-height: .53333rem;
-  }
-  
-  .coupon .right {
-    -webkit-box-flex: 6;
-    -webkit-flex: 6;
-    flex: 6;
-    text-align: center;
-    line-height: .42667rem;
-  }
-  
-  
-  
-  
-  #privilegeCenter .member {
-    height: 3.6rem;
-    padding: 0 .53333rem;
-    color: #FFFFFF;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    justify-content: space-between;
-    background: url('static/img/head.bg.png') no-repeat 0 -1.73333rem/100% auto;
-  }
-  
-  #privilegeCenter .member .left {
-    margin-top: .53333rem;
-  }
-  
-  #privilegeCenter .member .left>view {
-    display: inline-block;
-  }
-  
-  #privilegeCenter .member .left .logo {
-    width: 1.06667rem;
-    height: 1.06667rem;
-    vertical-align: middle;
-  }
-  
+.mealList .mealCard .mealTitle .right {
+  font-size: .29333rem;
+  text-align: right;
+}
+
+[class*=van-]:focus {
+  outline: 0;
+}
+
+.van-list__finished-text {
+  color: var(--tetx-color);
+  font-size: .37333rem;
+  line-height: 1.33333rem;
+  text-align: center;
+}
+
+.van-list__placeholder {
+  height: 0;
+  pointer-events: none;
+}
+
+[class*=van-]:focus {
+  outline: none;
+}
+
+/* 活动详情 */
+.x-line {
+  width: 100%;
+  height: 10px;
+}
+
+
+[class*=van-]:focus {
+  outline: 0;
+}
+
+.van-list__placeholder {
+  height: 0;
+  pointer-events: none;
+}
+
+[class*=van-]:focus {
+  outline: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.van-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.van-multi-ellipsis--l2 {
+  -webkit-line-clamp: 2;
+}
+
+.van-multi-ellipsis--l2 {
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+}
+
+.pb50 {
+  padding-bottom: 1.33333rem;
+}
+
+img {
+  display: block;
+  width: 100%;
+  font-size: 0;
+}
+
+.ft10 {
+  font-size: .26667rem;
+}
+
+.ft12 {
+  font-size: .32rem;
+}
+
+.ft14 {
+  font-size: .37333rem;
+}
+
+.ft16 {
+  font-size: .42667rem;
+}
+
+.ft18 {
+  font-size: .48rem;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex-1 {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+}
+
+.flex-1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+.flex-center {
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+
+.flex-center {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.verticalcenter {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+#app {
+  width: 100%;
+  height: 100%;
+}
+
+.coupon {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: 9.38667rem;
+  height: 2.4rem;
+  margin: 0 auto .26667rem;
+  color: #FFFFFF !important;
+  -webkit-align-content: center;
+  align-content: center;
+  background: url('static/img/coupon.red.png') no-repeat 0/100%;
+}
+
+.coupon .left {
+  -webkit-box-flex: 11;
+  -webkit-flex: 11;
+  flex: 11;
+  padding-top: .13333rem;
+}
+
+.coupon .left p {
+  text-align: center;
+}
+
+.coupon .left .num {
+  line-height: 1.33333rem;
+  margin-bottom: .08rem;
+  font-size: .93333rem;
+}
+
+.coupon .center {
+  position: relative;
+  -webkit-box-flex: 25;
+  -webkit-flex: 25;
+  flex: 25;
+  padding: .24rem 0 0 .21333rem;
+}
+
+.coupon .center .couponName {
+  width: 4.93333rem;
+  margin-bottom: .08rem;
+  line-height: .66667rem;
+}
+
+.coupon .center .ft10 {
+  line-height: .37333rem;
+}
+
+.coupon .center .ft12 {
+  line-height: .42667rem;
+}
+
+.coupon .center .couponDetailBtn {
+  position: absolute;
+  left: 3.46667rem;
+  top: 1.6rem;
+  width: 1.6rem;
+  height: .53333rem;
+  background-color: var(--btn-color);
+  border-radius: .32rem;
+  color: var(-btn-text-color);
+  text-align: center;
+  line-height: .53333rem;
+}
+
+.coupon .right {
+  -webkit-box-flex: 6;
+  -webkit-flex: 6;
+  flex: 6;
+  text-align: center;
+  line-height: .42667rem;
+}
+
+
+
+
+#privilegeCenter .member {
+  height: 3.6rem;
+  padding: 0 .53333rem;
+  color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  justify-content: space-between;
+  background: url('static/img/head.bg.png') no-repeat 0 -1.73333rem/100% auto;
+}
+
+#privilegeCenter .member .left {
+  margin-top: .53333rem;
+}
+
+#privilegeCenter .member .left>view {
+  display: inline-block;
+}
+
+#privilegeCenter .member .left .logo {
+  width: 1.06667rem;
+  height: 1.06667rem;
+  vertical-align: middle;
+}
+
+#privilegeCenter .member .left .logo img {
+  width: 100%;
+  height: 100%;
+  border: .02667rem solid var(--border-color);
+  border-radius: 50%;
+}
+
+@media (prefers-color-scheme: dark) {
   #privilegeCenter .member .left .logo img {
-    width: 100%;
-    height: 100%;
-    border: .02667rem solid var(--border-color);
-    border-radius: 50%;
+    -webkit-filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1);
   }
-  
-  @media (prefers-color-scheme: dark) {
-    #privilegeCenter .member .left .logo img {
-      -webkit-filter: brightness(0) invert(1);
-      filter: brightness(0) invert(1);
-    }
-  }
-  
-  #privilegeCenter .member .left .text {
-    vertical-align: middle;
-    margin-left: .21333rem;
-  }
-  
-  #privilegeCenter .member .left .text .name {
-    line-height: .58667rem;
-  }
-  
-  #privilegeCenter .member .left .text .endTime {
-    line-height: .37333rem;
-  }
-  
-  #privilegeCenter .member .right {
-    width: 1.6rem;
-    height: .53333rem;
-    margin-top: .85333rem;
-    background-color: var(--btn-backgroud-color);
-    border-radius: .53333rem;
-    color: var(--btn-text-color);
-    text-align: center;
-    line-height: .53333rem;
-  }
-  
-  #privilegeCenter .black {
-    width: 8.21333rem;
-    height: .48rem;
-    margin: -1.06667rem auto .8rem;
-    color: #FFFFFF;
-    text-align: center;
-  }
-  
-  #privilegeCenter .merchantList {
-    width: 95%;
-    padding-top: .02667rem;
-    margin: 0 auto;
-    background-color: var(--Default-background-color);
-  }
-  
-  #privilegeCenter .merchantList .merchant {
-    width: 9.33333rem;
-    margin: .21333rem auto 0;
-    border-radius: .08rem;
-  }
-  
-  #privilegeCenter .merchantList .merchant .coupon {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    width: 9.38667rem;
-    height: 2.4rem;
-    margin: 0 auto;
-    color: var(--text-color);
-    -webkit-align-content: center;
-    align-content: center;
-    background: url('static/img/coupon.red.png') no-repeat 0/100%;
-  }
-  
-  #privilegeCenter .merchantList .merchant .coupon .left {
-    -webkit-box-flex: 11;
-    -webkit-flex: 11;
-    flex: 11;
-    padding-top: .13333rem;
-  }
-  
-  #privilegeCenter .merchantList .merchant .coupon .left p {
-    text-align: center;
-  }
-  
-  #privilegeCenter .merchantList .merchant .coupon .left .num {
-    line-height: 1.33333rem;
-    margin-bottom: .08rem;
-    font-size: .93333rem;
-  }
-  
-  #privilegeCenter .merchantList .merchant .coupon .center {
-    position: relative;
-    -webkit-box-flex: 25;
-    -webkit-flex: 25;
-    flex: 25;
-    padding: .24rem 0 0 .21333rem;
-  }
-  
-  #privilegeCenter .merchantList .merchant .coupon .center .couponName {
-    width: 4.93333rem;
-    margin-bottom: .08rem;
-    line-height: .66667rem;
-  }
-  
-  #privilegeCenter .merchantList .merchant .coupon .center .ft10 {
-    line-height: .37333rem;
-  }
-  
-  #privilegeCenter .merchantList .merchant .coupon .center .ft12 {
-    line-height: .42667rem;
-  }
-  
-  #privilegeCenter .merchantList .merchant .coupon .center .couponDetailBtn {
-    position: absolute;
-    left: 3.46667rem;
-    top: 1.6rem;
-    width: 1.6rem;
-    height: .53333rem;
-    background: var(--btn-backgroud-color);
-    border-radius: .32rem;
-    color: #ff3c46;
-    text-align: center;
-    line-height: .53333rem;
-  }
-  
-  #privilegeCenter .merchantList .merchant .coupon .right {
-    -webkit-box-flex: 6;
-    -webkit-flex: 6;
-    flex: 6;
-    text-align: center;
-    line-height: .42667rem;
-  }
-  
-  #privilegeCenter .merchantList .merchant .store {
-    position: relative;
-    background-color: var(--Highlight-background-color);
-    border: .02667rem solid var(--border-color);
-    border-radius: 10upx;
-  }
-  
-  #privilegeCenter .merchantList .merchant .store>view {
-    display: inline-block;
-  }
-  
-  #privilegeCenter .merchantList .merchant .store .logo {
-    width: auto;
-    height: auto;
-  }
-  
+}
+
+#privilegeCenter .member .left .text {
+  vertical-align: middle;
+  margin-left: .21333rem;
+}
+
+#privilegeCenter .member .left .text .name {
+  line-height: .58667rem;
+}
+
+#privilegeCenter .member .left .text .endTime {
+  line-height: .37333rem;
+}
+
+#privilegeCenter .member .right {
+  width: 1.6rem;
+  height: .53333rem;
+  margin-top: .85333rem;
+  background-color: var(--btn-backgroud-color);
+  border-radius: .53333rem;
+  color: var(--btn-text-color);
+  text-align: center;
+  line-height: .53333rem;
+}
+
+#privilegeCenter .black {
+  width: 8.21333rem;
+  height: .48rem;
+  margin: -1.06667rem auto .8rem;
+  color: #FFFFFF;
+  text-align: center;
+}
+
+#privilegeCenter .merchantList {
+  width: 95%;
+  padding-top: .02667rem;
+  margin: 0 auto;
+  background-color: var(--Default-background-color);
+}
+
+#privilegeCenter .merchantList .merchant {
+  width: 9.33333rem;
+  margin: .21333rem auto 0;
+  border-radius: .08rem;
+}
+
+#privilegeCenter .merchantList .merchant .coupon {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  width: 9.38667rem;
+  height: 2.4rem;
+  margin: 0 auto;
+  color: var(--text-color);
+  -webkit-align-content: center;
+  align-content: center;
+  background: url('static/img/coupon.red.png') no-repeat 0/100%;
+}
+
+#privilegeCenter .merchantList .merchant .coupon .left {
+  -webkit-box-flex: 11;
+  -webkit-flex: 11;
+  flex: 11;
+  padding-top: .13333rem;
+}
+
+#privilegeCenter .merchantList .merchant .coupon .left p {
+  text-align: center;
+}
+
+#privilegeCenter .merchantList .merchant .coupon .left .num {
+  line-height: 1.33333rem;
+  margin-bottom: .08rem;
+  font-size: .93333rem;
+}
+
+#privilegeCenter .merchantList .merchant .coupon .center {
+  position: relative;
+  -webkit-box-flex: 25;
+  -webkit-flex: 25;
+  flex: 25;
+  padding: .24rem 0 0 .21333rem;
+}
+
+#privilegeCenter .merchantList .merchant .coupon .center .couponName {
+  width: 4.93333rem;
+  margin-bottom: .08rem;
+  line-height: .66667rem;
+}
+
+#privilegeCenter .merchantList .merchant .coupon .center .ft10 {
+  line-height: .37333rem;
+}
+
+#privilegeCenter .merchantList .merchant .coupon .center .ft12 {
+  line-height: .42667rem;
+}
+
+#privilegeCenter .merchantList .merchant .coupon .center .couponDetailBtn {
+  position: absolute;
+  left: 3.46667rem;
+  top: 1.6rem;
+  width: 1.6rem;
+  height: .53333rem;
+  background: var(--btn-backgroud-color);
+  border-radius: .32rem;
+  color: #ff3c46;
+  text-align: center;
+  line-height: .53333rem;
+}
+
+#privilegeCenter .merchantList .merchant .coupon .right {
+  -webkit-box-flex: 6;
+  -webkit-flex: 6;
+  flex: 6;
+  text-align: center;
+  line-height: .42667rem;
+}
+
+#privilegeCenter .merchantList .merchant .store {
+  position: relative;
+  background-color: var(--Highlight-background-color);
+  border: .02667rem solid var(--border-color);
+  border-radius: 10upx;
+}
+
+#privilegeCenter .merchantList .merchant .store>view {
+  display: inline-block;
+}
+
+#privilegeCenter .merchantList .merchant .store .logo {
+  width: auto;
+  height: auto;
+}
+
+#privilegeCenter .merchantList .merchant .store .logo img {
+  width: 100%;
+  height: 100%;
+}
+
+@media (prefers-color-scheme: dark) {
   #privilegeCenter .merchantList .merchant .store .logo img {
-    width: 100%;
-    height: 100%;
+    -webkit-filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1);
   }
-  
-  @media (prefers-color-scheme: dark) {
-    #privilegeCenter .merchantList .merchant .store .logo img {
-      -webkit-filter: brightness(0) invert(1);
-      filter: brightness(0) invert(1);
-    }
-  }
-  
-  #privilegeCenter .merchantList .merchant .store .detail {
-    width: 60%;
-    text-align: justify;
-    vertical-align: top;
-  }
-  
-  #privilegeCenter .merchantList .merchant .store .detail .name {
-    width: 100%;
-  }
-  
-  #privilegeCenter .merchantList .merchant .store .detail .address {
-    position: absolute;
-    bottom: .9rem;
-    line-height: .37333rem;
-    vertical-align: bottom;
-    color: var(--text-color);
-  }
-  
-  #privilegeCenter .merchantList .merchant .store .detail .goStore {
-    position: absolute;
-    width: 1.06667rem;
-    color: #aaa;
-    line-height: .48rem;
-    text-align: center;
-    border: .02667rem solid #666;
-    bottom: .26667rem;
-    right: .21333rem;
-    border-radius: .32rem;
-  }
-  
-  #privilegeCenter .merchantList .merchant .showMoreStore {
-    margin: .4rem 0;
-    text-align: center;
-    color: #323232;
-  }
-  
-  
-  .x-content image{border-radius: 10upx;}
+}
+
+#privilegeCenter .merchantList .merchant .store .detail {
+  width: 60%;
+  text-align: justify;
+  vertical-align: top;
+}
+
+#privilegeCenter .merchantList .merchant .store .detail .name {
+  width: 100%;
+}
+
+#privilegeCenter .merchantList .merchant .store .detail .address {
+  position: absolute;
+  bottom: .9rem;
+  line-height: .37333rem;
+  vertical-align: bottom;
+  color: var(--text-color);
+}
+
+#privilegeCenter .merchantList .merchant .store .detail .goStore {
+  position: absolute;
+  width: 1.06667rem;
+  color: #aaa;
+  line-height: .48rem;
+  text-align: center;
+  border: .02667rem solid #666;
+  bottom: .26667rem;
+  right: .21333rem;
+  border-radius: .32rem;
+}
+
+#privilegeCenter .merchantList .merchant .showMoreStore {
+  margin: .4rem 0;
+  text-align: center;
+  color: #323232;
+}
+
+
+.x-content image {
+  border-radius: 10upx;
+}

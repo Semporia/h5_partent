@@ -83,11 +83,17 @@
     font-size: calc(10px + 2vmin);
     transition: background-color 0.3s;
   }
+  .dlbutton,.oBorder{
+    color: var(--text-color) !important;
+    background-color: var(--Highlight-background-color) !important;
+    border: 2upx solid var(--border-color) !important;
+  }
   img {
     display: block;
     width: 100%;
     font-size: 0;
   }
+
   /* ---------- 实线 ---------- */
   .solid,
   .solid-top,
@@ -149,9 +155,11 @@
     border-radius: 20upx;
     border: 2upx solid;
   }
-  .radius{
+
+  .radius {
     border-radius: 10upx;
   }
+
   /* ---------- 布局 ---------- */
 
   /* -- flex弹性布局 -- */
