@@ -59,7 +59,7 @@
 		position: fixed;
 		max-height: 100%;
 		overflow-y: auto;
-		background-color: #fff;
+		background: var(--Highlight-background-color);
 		-webkit-transition: -webkit-transform .3s;
 		transition: -webkit-transform .3s;
 		transition: transform .3s;

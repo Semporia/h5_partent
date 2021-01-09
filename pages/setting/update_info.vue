@@ -145,7 +145,7 @@
 		color: #323233;
 		font-size: .37333rem;
 		line-height: .64rem;
-		background-color: #fff;
+		background: var(--Highlight-background-color);
 	}
 
 	.van-cell:not(:last-child):after {

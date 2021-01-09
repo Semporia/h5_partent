@@ -294,7 +294,7 @@
 		margin: .4rem auto;
 		padding: .53333rem .48rem;
 		border-radius: .18667rem;
-		background-color: #fff;
+		background: var(--Highlight-background-color);
 	}
 
 	#myGeneralize .codeWrap .code {
@@ -303,12 +303,12 @@
 	}
 
 	#myGeneralize .fansWrap {
-		background-color: #fff;
+		background: var(--Highlight-background-color);
 		padding: .53333rem .42667rem;
 	}
 
 	#myGeneralize .fansWrap .fansList {
-		color: #343434;
+		color:  var(--text-color);
 	}
 
 	#myGeneralize .fansWrap .fansList .fans {
@@ -332,7 +332,7 @@
 
 	#myGeneralize .fansWrap .fansList .fans .right {
 		vertical-align: middle;
-		color: #343434;
+		color:  var(--text-color);
 	}
 
 	#myGeneralize .fansWrap .fansList .fans .right .icon-link {

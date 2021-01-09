@@ -320,7 +320,7 @@
 	}
 
 	#couponDetail {
-		background-color: #fff;
+		background: var(--Highlight-background-color);
 		margin: 0 auto;
 		padding: 0 .26667rem;
 	}
@@ -404,7 +404,7 @@
 		align-items: flex-start;
 		height: 2.29333rem;
 		padding: .37333rem .32rem .53333rem .4rem;
-		background-color: #fff;
+		background: var(--Highlight-background-color);
 		margin-bottom: .26667rem;
 	}
 

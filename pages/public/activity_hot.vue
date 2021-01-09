@@ -520,7 +520,7 @@
     top: 1.6rem;
     width: 1.6rem;
     height: .53333rem;
-    background-color: #fff;
+    background: var(--Highlight-background-color);
     border-radius: .32rem;
     color: #ff3c46;
     text-align: center;

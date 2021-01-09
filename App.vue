@@ -83,7 +83,11 @@
     font-size: calc(10px + 2vmin);
     transition: background-color 0.3s;
   }
-
+  img {
+    display: block;
+    width: 100%;
+    font-size: 0;
+  }
   /* ---------- 实线 ---------- */
   .solid,
   .solid-top,
@@ -145,7 +149,9 @@
     border-radius: 20upx;
     border: 2upx solid;
   }
-
+  .radius{
+    border-radius: 10upx;
+  }
   /* ---------- 布局 ---------- */
 
   /* -- flex弹性布局 -- */
@@ -781,7 +787,7 @@
     padding-bottom: .5rem !important;
     color: var(--text-color);
     background: var(--Highlight-background-color);
-    border-top: var(--border-color);
+    border-top: 2upx solid var(--border-color);
   }
 
   .menu-tabbar .menu-inner {

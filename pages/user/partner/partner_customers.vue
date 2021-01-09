@@ -8,7 +8,7 @@
 						<!----></i>
 					<p class="code ft28">37695</p>
 				</view>
-				<view class="fansWrap">
+				<view class="fansWrap margin solid radius">
 					<p class="ft18">我的粉丝</p>
 					<ul class="fansList">
 						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')" >
@@ -226,7 +226,7 @@
 		right: -50%;
 		bottom: -50%;
 		left: -50%;
-		border: 0 solid #ebedf0;
+		border: 0 solid var(--border-color);
 		-webkit-transform: scale(.5);
 		transform: scale(.5);
 	}
@@ -237,15 +237,6 @@
 
 	.van-hairline--bottom:after {
 		border-bottom-width: .02667rem;
-	}
-
-	* {
-		margin: 0;
-		padding: 0;
-	}
-
-	* {
-		touch-action: pan-y;
 	}
 
 	img {
@@ -288,7 +279,7 @@
 	}
 
 	#myGeneralize .van-hairline--bottom:after {
-		border-color: #ebebeb;
+		border-color: var(--border-color);
 	}
 
 	#myGeneralize .codeWrap {
@@ -296,7 +287,7 @@
 		margin: .4rem auto;
 		padding: .53333rem .48rem;
 		border-radius: .18667rem;
-		background-color: #fff;
+		background: var(--Highlight-background-color);
 	}
 
 	#myGeneralize .codeWrap .code {
@@ -305,12 +296,12 @@
 	}
 
 	#myGeneralize .fansWrap {
-		background-color: #fff;
+		background: var(--Highlight-background-color);
 		padding: .53333rem .42667rem;
 	}
 
 	#myGeneralize .fansWrap .fansList {
-		color: #343434;
+		color:  var(--text-color);
 	}
 
 	#myGeneralize .fansWrap .fansList .fans {
@@ -334,7 +325,7 @@
 
 	#myGeneralize .fansWrap .fansList .fans .right {
 		vertical-align: middle;
-		color: #343434;
+		color:  var(--text-color);
 	}
 
 	#myGeneralize .fansWrap .fansList .fans .right .icon-link {

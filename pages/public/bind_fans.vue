@@ -64,7 +64,7 @@
 		color: #323233;
 		font-size: .37333rem;
 		line-height: .64rem;
-		background-color: #fff;
+		background: var(--Highlight-background-color);
 	}
 
 	.van-cell__value {
@@ -178,7 +178,7 @@
 
 	.van-button--default {
 		color: #323233;
-		background-color: #fff;
+		background: var(--Highlight-background-color);
 		border: .02667rem solid #ebedf0;
 	}
 

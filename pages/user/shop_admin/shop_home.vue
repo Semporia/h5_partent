@@ -391,7 +391,7 @@
 		margin-left: .26667rem;
 		vertical-align: middle;
 		font-family: PingFangSC-Semibold;
-		color: #343434;
+		color:  var(--text-color);
 	}
 
 	.my-info .my-content .left .vipIcon {
@@ -503,8 +503,8 @@
 
 	#function ul {
 		width: 100%;
-		background-color: #fff;
-		color: #343434;
+		background: var(--Highlight-background-color);
+		color:  var(--text-color);
 	}
 
 	#function .l1 {

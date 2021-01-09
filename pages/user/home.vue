@@ -2,14 +2,13 @@
 	<view>
 		<view id="app">
 			<view class="pb50 mine">
-				<view class="my-info">
+				<view class="my-info margin-bottom">
 					<view class="my-content flex-jb">
-						<view class="left"><img :src="user.headimgurl" class="my-avatar">
+						<view class="left padding-top padding-left"><img :src="user.headimgurl" class="my-avatar">
 							<view class="my-name ft22">{{user.nickname}} <view class="ft14" style="margin-top: 7px;">UID：{{user.id}}</view>
 							</view><img src="../../static/img/vip.png" class="vipIcon">
 						</view>
-						<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAAEgBckRAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAMKADAAQAAAABAAAAMAAAAADbN2wMAAAEiklEQVRoBc2Zu25UMRCGk3BpEAV0IMRKEUSAgAoJCmjIOxCeAgra8BDUhDcgBApegAokCq4SBZckXDqggA5xme+wY816x/bx2ZNNRpp4PPN7PL4ce7yZmUnQrNH/NfKsGqyysc8ZFKICgzDWIiAEbY1WHzkdVkErL6CjiXWBLtBhkayxkbMtaPpi2Mq2RB9oXSSMv4S1ixGwjmNDAEeFc/RcjHsUgEc8Kat+r9FhO6kGBWoJELotrDrKTZRKx0WwxlgGt1/BWr4WAeCpoQKP1MeAQ3tT2K2hk2LtI7KGsSjaFWGtB1DsAYBHAUf38H3hFBgH2O4i7BL+I3yCSoGYiIOK0VgpX6pSSqtHDmQNQSnCQ+Ex2yBSWk8W3OgZvQVINUuXrDX2ZuvMYkNhfof1VG8BZ7fBsE1wFEDWkJNxppvxmwMciE7DXnLsRdWacaCOcmXRoQUsVzrXjq2PEVmnQoF9lbP68Rwa6c6vvBI1Cwlf8CFj2mtWwzefitzirPyupo09UOKOzluvRo5xth5gDNkacjIRxx94Dv9Je2Ef54BdberfLWudhvPB9eYoV0VX04njoqxifW4JX09AP4v+YsLWWk0nHqUOPg/r6uzCDxwEByBTyCnQqbN4/vlOyGn4IONsZEN01RR3kKtX76BSJuN15o6Ai9+jr56yoCOBeJTCcFKy70n7vOhqdFxU68Jh4WvOopqO2F0N8SHVNKzBNsN4P+yoVHDJMFqYKS3RdwGEaSJzy0WmSbR1SlKXasN3MkYpMHdAilJtLmuDMARVOOUbR1dSuW1S0aD3iGs01YZjZYQ2pZYCo+cBYyl+AXltB9qAM90DeDru41wmEbdhxzUXRmzoq47/hvpyaP1cUeeU9un2QOoWWCMvWKc5uUsnOX+urSbyZ64HUbb50FJtrf6trVg51YFdE/AfhfWgo9TnNzYo/BLwv9r+LzkP34lH5Eoc9c1e9wDoUldmCm/1OCaAG8J3hH8LPxFuQwR3T3gg/FOYGZoKsTTchKkNxpGWWw6WLnfs4TteflH1S/zMkRrApPrV2lBTH0HOz7GccUIb6eSWEgnupLNcas8h25m8/cfxPo3A44ExEG9FvBibAdvHUuxsp9WJdYQ4DndakKV4iDncTvxYwcuxT+I5oLkpv8nO9+lcfH0RPmJ9DqSSO6NLM4Kd1JV0NUXYwLTxlcIQ4yDVAfoV4VTjnJ4kvi3lEv5cH8RWJPuPlZwzayOXryXaWB9t5LFt7l1kuVQgFWSb/zvEbbu0KcYGgGdtm9mIMTyVc/tfBwAm96yO/do6sY0NglUgO9QfxWyDLjLBed8Duq6Bx3EQKzHP7ZY//HI0L3xAuA86LU4e9+Eo44NYiZnYGyK3z6XJ8Qxsd51Ym4eOfe2wlVjifcJPhXnsMMqzwttJ/G/6gzAPpnPCP4TPCDOJVXRT0NOa+eWqyCrAC1MYhJeBVoRYhm5lar1W7n5yxIa4yG0lzmoe+YvC3JwwMmlA6Y5ZF8yWEx/7VeH41OJsHrToHUx85+BrSRjf20KcZjWdg7UnYOeg/wHO3QBAnaFv1wAAAABJRU5ErkJggg=="
-						 class="setting" @click="NavTo('/pages/setting/index')">
+						<img src="../../static/img/Preference.png" class="setting padding-right" @click="NavTo('/pages/setting/index')">
 					</view>
 				</view>
 				<view class="my-wallet">
@@ -50,7 +49,7 @@
 
 
 
-					<ul class="l1 flex-ja ft14">
+					<ul class="l1 flex-ja ft14 solid">
 						<li @click="NavTo('/pages/public/join')"><img src="../../static/img/carefreeWang_1.png">
 							共享合伙人
 						</li>
@@ -60,7 +59,8 @@
 						<!-- <li @click="NavTo('/pages/public/join')"><img src="../../static/img/carefreeWang_3.png">
 							逍遥神
 						</li> -->
-					</ul><img src="../../static/img/hd.png" alt="">
+					</ul>
+          <img class="margin-top margin-bottom" src="../../static/img/hd.png" alt="">
 
 
 					<!-- 					<view class="detail99 ft10">
@@ -81,7 +81,7 @@
 					</view> -->
 
 
-					<ul class="l2 flex-ja ft14">
+					<ul class="l2 flex-ja ft14 solid">
 						<li @click="NavTo('/pages/user/partner/partner_customers')"><img src="../../static/img/promote.png">
 							我的推广
 						</li>
@@ -213,15 +213,6 @@
 
 	.van-hairline--left:after {
 		border-left-width: .02667rem;
-	}
-
-	* {
-		margin: 0;
-		padding: 0;
-	}
-
-	* {
-		touch-action: pan-y;
 	}
 
 	.pb50 {
@@ -372,16 +363,20 @@
 
 	.my-info {
 		height: 2.82667rem;
+    background-color: var(--Highlight-background-color);
 	}
 
 	.my-info .setting {
 		width: .64rem;
 		display: inline-block;
 	}
-
+  @media (prefers-color-scheme: dark) {
+    .my-info .setting {
+      -webkit-filter: brightness(0) invert(1);
+      filter: brightness(0) invert(1);
+    }
+  }
 	.my-info .my-content {
-		margin: .53333rem .26667rem 0;
-		height: 1.44rem;
 		-webkit-box-align: center;
 		-webkit-align-items: center;
 		align-items: center;
@@ -407,7 +402,7 @@
 		margin-left: .26667rem;
 		vertical-align: middle;
 		font-family: PingFangSC-Semibold;
-		color: #343434;
+		color: var(--text-color);
 	}
 
 	.my-info .my-content .left .vipIcon {
@@ -519,14 +514,14 @@
 
 	#function ul {
 		width: 100%;
-		background-color: #fff;
-		color: #343434;
+		background-color: var(--Highlight-background-color);
+		color: var(--text-color);
 	}
 
 	#function .l1 {
-		margin-bottom: .26667rem;
 		padding: .4rem 0 .32rem;
 		text-align: center;
+    border-radius: 10upx;
 	}
 
 	#function .l1 li img {
@@ -540,8 +535,8 @@
 		margin: .26667rem auto;
 		padding: .4rem .34667rem;
 		height: 2.21333rem;
-		background: #fff;
-		color: #999;
+		background: var(--Highlight-background-color);
+		color: var(--text-color);
 	}
 
 	#function .detail99 .line1 {
@@ -584,6 +579,7 @@
 		padding: .48rem 0;
 		-webkit-flex-wrap: wrap;
 		flex-wrap: wrap;
+    border-radius: 10upx;
 	}
 
 	#function .l2 li {
