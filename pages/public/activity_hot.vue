@@ -178,7 +178,7 @@
   }
 </script>
 
-<style scoped>
+<style>
   .x-line {
     width: 100%;
     height: 10px;

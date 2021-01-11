@@ -35,25 +35,21 @@
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* 深色主题 */
-  @media (prefers-color-scheme: dark) {
-    :root {
-
-      --Default-background-color: #0D1117;
-      --Highlight-background-color: #161B22;
-      --text-color: #8B949E;
-      --text-active-color: #C9D1D9;
-      --border-color: #30363D;
-      --hover-color: #FF3C46;
-      --hover-border-color: #F9826C;
-      --btn-text-color: #FF3C46;
-      --btn-backgroud-color: #FFFFFF;
-      --tabbar-background-color: #161B22;
-      --green: #39B54A;
-      --orange: #FF4500;
-    }
+  /* 默认主题 */
+  :root {
+    --Default-background-color: #F2F2F2;
+    --Highlight-background-color: #FFFFFF;
+    --text-color: #24292E;
+    --text-active-color: #C9D1D9;
+    --border-color: #E1E4E8;
+    --hover-color: #FF3C46;
+    --hover-border-color: #F9826C;
+    --btn-text-color: #FF3C46;
+    --btn-backgroud-color: #FFFFFF;
+    --tabbar-background-color: #161B22;
+    --green: #39B54A;
+    --orange: #FF4500;
   }
-
   /*浅色主题 */
   @media (prefers-color-scheme: light) {
     :root {
@@ -71,7 +67,23 @@
       --orange: #FF4500;
     }
   }
-
+  /* 深色主题 */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --Default-background-color: #0D1117;
+      --Highlight-background-color: #161B22;
+      --text-color: #8B949E;
+      --text-active-color: #C9D1D9;
+      --border-color: #30363D;
+      --hover-color: #FF3C46;
+      --hover-border-color: #F9826C;
+      --btn-text-color: #FF3C46;
+      --btn-backgroud-color: #FFFFFF;
+      --tabbar-background-color: #161B22;
+      --green: #39B54A;
+      --orange: #FF4500;
+    }
+  }
   .body {
     color: var(--text-color);
     background-color: var(--Default-background-color) !important;
@@ -793,22 +805,26 @@
     bottom: 0;
     height: 1.33333rem;
     padding-bottom: .5rem !important;
-    color: var(--text-color);
-    background: var(--Highlight-background-color);
-    border-top: 2upx solid var(--border-color);
+    color: var(--text-color) !important;
+    background-color: #FFFFFF;
+    border-top: 2upx solid var(--border-color) !important;
   }
-
+  @media (prefers-color-scheme: dark) {
+    .menu-tabbar {
+      background-color: #161B22;
+    }
+  }
   .menu-tabbar .menu-inner {
     height: 1.06667rem;
     line-height: .42667rem;
   }
-
+  
   .menu-tabbar .menu-icon {
     width: .58667rem;
     height: .58667rem;
     margin: 0 auto .10667rem;
   }
-
+  
   @media (prefers-color-scheme: dark) {
     .menu-tabbar .menu-icon {
       -webkit-filter: brightness(0) invert(1);

@@ -412,7 +412,7 @@
 
 	.my-wallet {
 		margin: 0 auto;
-		width: 9.41333rem;
+		width: 95%;
 		height: 4rem;
 		color: #fff;
 		background: url(../../static/img/wallet.jpg) 50%/100%;
@@ -449,7 +449,7 @@
 
 	#function {
 		margin: .26667rem auto;
-		width: 9.2rem;
+		width: 95%;
 	}
 
 	#function .vip99 {
