@@ -18,7 +18,7 @@
 
             <view v-for="(coupon,c_index) in activity_coupons" :key="c_index">
 
-              <view class="coupon">
+              <view class="coupon radius">
                 <view class="left">
                   <p class="num">{{coupon.cut_money}}</p>
                   <p class="ft18">元</p>
@@ -457,7 +457,7 @@
   }
 
   #privilegeCenter .merchantList .merchant {
-    width: 9.33333rem;
+    width: 100%;
     margin: .21333rem auto 0;
     border-radius: .08rem;
   }
@@ -466,7 +466,7 @@
     display: -webkit-box;
     display: -webkit-flex;
     display: flex;
-    width: 9.38667rem;
+    width: 100%;
     height: 2.4rem;
     margin: 0 auto;
     color: var(--text-color);
