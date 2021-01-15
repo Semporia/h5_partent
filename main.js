@@ -4,11 +4,15 @@ import App from './App'
 import footnav from "@/components/footnav"
 import indexConfig from "config/index.config.js"
 import constData from './config/constData.config.js'
+import { http } from '@/utils/request';
+Vue.prototype.http = http;
+
 Vue.prototype.constData = constData;
 // import 'lib-flexible'
 Vue.config.productionTip = false
 Vue.component('footnav', footnav);
 App.mpType = 'app'
+
 Vue.prototype.reLoadSize = function() {
 	var html = document.getElementsByTagName("html")[0];
 	var body = document.getElementsByTagName("body")[0];

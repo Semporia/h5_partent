@@ -65,26 +65,24 @@
       this.reLoadSize();
       this.loadData();
     },
+	onReachBottom() {
+		this.page ++;
+		this.loadData();
+	},
     methods: {
-      loadData() {
-        var _this = this;
-        uni.showLoading({
-          title: '加载中'
-        });
-        _this.post({
-          url: '/user/getAccounts',
-          data: {
-            'page': _this.page
-          },
-          success: function(res) {
-            if (res.data.err == 0) {
-              _this.shop_accounts = res.data.data.shop_accounts;
-            }
-            uni.hideLoading();
-          }
-
-        })
+      async loadData(){
+      	await this.http.post("/user/getAccounts",{'shop_id':1,page:this.page}).then(
+      		async r => {
+				if(this.page>r.page_info.total_page){
+					uni.showToast({
+						title:'没有更多信息'
+					})
+				}
+      			this.shop_accounts = this.shop_accounts.concat(r.shop_accounts);
+      		}
+      	)
       }
+      	
     }
   }
 </script>
