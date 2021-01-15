@@ -6,156 +6,31 @@
 					<view class="wrap">
 						<view class="title">
 							<view class="titleTop">累计收入</view>
-							<view class="allMoney">￥1782</view>
+							<view class="allMoney">￥{{un_pay+payed}}</view>
 						</view>
 					</view>
 					<view class="wrap">
 						<view class="title">
-							<view>0</view>
+							<view>{{un_pay}}</view>
 							<view>待提现金额</view>
 						</view>
 						<view class="title">
-							<view>0</view>
+							<view>{{payed}}</view>
 							<view>已提现金额</view>
 						</view>
-					</view><button class="submit van-button van-button--primary van-button--normal"><span class="van-button__text">申请提现</span></button>
+					</view><button class="submit van-button van-button--primary van-button--normal" @click="toWithdraw"><span class="van-button__text">申请提现</span></button>
 					<view class="title1">收入记录</view>
 					<view role="feed" class="listArr van-list">
-						<view>
+						<view v-for="(item,index) in shop_accounts" :key="index" >
 							<view>
 								<view>佣金</view>
-								<view>+99</view>
+								<view>+{{item.partner_money}}</view>
 							</view>
 							<view>
-								<view>2020-12-16 19:28:42</view>
+								<view>{{item.created_at}}</view>
 							</view>
 						</view>
-						<view>
-							<view>
-								<view>佣金</view>
-								<view>+99</view>
-							</view>
-							<view>
-								<view>2020-12-16 15:13:19</view>
-							</view>
-						</view>
-						<view>
-							<view>
-								<view>佣金</view>
-								<view>+99</view>
-							</view>
-							<view>
-								<view>2020-12-16 13:55:18</view>
-							</view>
-						</view>
-						<view>
-							<view>
-								<view>佣金</view>
-								<view>+99</view>
-							</view>
-							<view>
-								<view>2020-12-16 12:29:50</view>
-							</view>
-						</view>
-						<view>
-							<view>
-								<view>佣金</view>
-								<view>+99</view>
-							</view>
-							<view>
-								<view>2020-12-15 10:01:12</view>
-							</view>
-						</view>
-						<view>
-							<view>
-								<view>佣金</view>
-								<view>+99</view>
-							</view>
-							<view>
-								<view>2020-12-14 21:00:40</view>
-							</view>
-						</view>
-						<view>
-							<view>
-								<view>佣金</view>
-								<view>+99</view>
-							</view>
-							<view>
-								<view>2020-12-12 09:52:13</view>
-							</view>
-						</view>
-						<view>
-							<view>
-								<view>佣金</view>
-								<view>+99</view>
-							</view>
-							<view>
-								<view>2020-12-10 14:19:33</view>
-							</view>
-						</view>
-						<view>
-							<view>
-								<view>佣金</view>
-								<view>+99</view>
-							</view>
-							<view>
-								<view>2020-12-10 14:14:22</view>
-							</view>
-						</view>
-						<view>
-							<view>
-								<view>佣金</view>
-								<view>+99</view>
-							</view>
-							<view>
-								<view>2020-12-08 21:58:38</view>
-							</view>
-						</view>
-						<view>
-							<view>
-								<view>佣金</view>
-								<view>+99</view>
-							</view>
-							<view>
-								<view>2020-12-08 19:58:19</view>
-							</view>
-						</view>
-						<view>
-							<view>
-								<view>佣金</view>
-								<view>+99</view>
-							</view>
-							<view>
-								<view>2020-12-08 19:46:30</view>
-							</view>
-						</view>
-						<view>
-							<view>
-								<view>佣金</view>
-								<view>+99</view>
-							</view>
-							<view>
-								<view>2020-12-08 14:44:30</view>
-							</view>
-						</view>
-						<view>
-							<view>
-								<view>佣金</view>
-								<view>+99</view>
-							</view>
-							<view>
-								<view>2020-12-08 13:33:55</view>
-							</view>
-						</view>
-						<view>
-							<view>
-								<view>佣金</view>
-								<view>+99</view>
-							</view>
-							<view>
-								<view>2020-12-08 10:13:30</view>
-							</view>
-						</view>
+						
 						<view class="van-list__placeholder"></view>
 					</view>
 				</view>
@@ -168,14 +43,34 @@
 	export default {
 		data() {
 			return {
-
+				shop_accounts:[],
+				un_pay:0,
+				payed:0,
 			}
 		},
 		onShow() {
 			this.reLoadSize();
+			this.loadData();
 		},
 		methods: {
-
+			async loadData(){
+				var _this = this;
+				await this.http.post("/partner/getAccounts",{'shop_id':1}).then(
+					async r => {
+						_this.shop_accounts = r.shop_accounts;  
+						_this.un_pay = r.un_pay;  
+						_this.payed = r.payed;  
+				    }
+				)
+			},
+			async toWithdraw(){
+				var _this = this;
+				await this.http.post("/partner/toWithdraw",{'shop_id':1}).then(
+					async r => {
+						 
+				    }
+				)
+			}
 		}
 	}
 </script>

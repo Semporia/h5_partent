@@ -4,11 +4,9 @@
 			<view class="pb50 mine">
 				<view class="my-info padding margin-bottom">
 					<view class="my-content flex-jb">
-						<view class="left padding-top padding-left"><img src="http://data.zhusutao.com/data/img/head.jpg"
-							 class="my-avatar">
-							<view class="my-name ft22">小葱 <view class="ft14" style="margin-top: 7px;">UID：37695</view>
-							</view>
-              <img src="../../../static/img/vip.png" class="vipIcon">
+						<view class="left"><img :src="shop_customer.headimgurl" class="my-avatar">
+							<view class="my-name ft22">{{shop_customer.real_name}} <view class="ft14" style="margin-top: 7px;">UID：{{shop_customer.user_id}}</view>
+							</view><img src="../../../static/img/vip.png" class="vipIcon">
 						</view>
             <img class="setting padding-right" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAAEgBckRAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAMKADAAQAAAABAAAAMAAAAADbN2wMAAAEiklEQVRoBc2Zu25UMRCGk3BpEAV0IMRKEUSAgAoJCmjIOxCeAgra8BDUhDcgBApegAokCq4SBZckXDqggA5xme+wY816x/bx2ZNNRpp4PPN7PL4ce7yZmUnQrNH/NfKsGqyysc8ZFKICgzDWIiAEbY1WHzkdVkErL6CjiXWBLtBhkayxkbMtaPpi2Mq2RB9oXSSMv4S1ixGwjmNDAEeFc/RcjHsUgEc8Kat+r9FhO6kGBWoJELotrDrKTZRKx0WwxlgGt1/BWr4WAeCpoQKP1MeAQ3tT2K2hk2LtI7KGsSjaFWGtB1DsAYBHAUf38H3hFBgH2O4i7BL+I3yCSoGYiIOK0VgpX6pSSqtHDmQNQSnCQ+Ex2yBSWk8W3OgZvQVINUuXrDX2ZuvMYkNhfof1VG8BZ7fBsE1wFEDWkJNxppvxmwMciE7DXnLsRdWacaCOcmXRoQUsVzrXjq2PEVmnQoF9lbP68Rwa6c6vvBI1Cwlf8CFj2mtWwzefitzirPyupo09UOKOzluvRo5xth5gDNkacjIRxx94Dv9Je2Ef54BdberfLWudhvPB9eYoV0VX04njoqxifW4JX09AP4v+YsLWWk0nHqUOPg/r6uzCDxwEByBTyCnQqbN4/vlOyGn4IONsZEN01RR3kKtX76BSJuN15o6Ai9+jr56yoCOBeJTCcFKy70n7vOhqdFxU68Jh4WvOopqO2F0N8SHVNKzBNsN4P+yoVHDJMFqYKS3RdwGEaSJzy0WmSbR1SlKXasN3MkYpMHdAilJtLmuDMARVOOUbR1dSuW1S0aD3iGs01YZjZYQ2pZYCo+cBYyl+AXltB9qAM90DeDru41wmEbdhxzUXRmzoq47/hvpyaP1cUeeU9un2QOoWWCMvWKc5uUsnOX+urSbyZ64HUbb50FJtrf6trVg51YFdE/AfhfWgo9TnNzYo/BLwv9r+LzkP34lH5Eoc9c1e9wDoUldmCm/1OCaAG8J3hH8LPxFuQwR3T3gg/FOYGZoKsTTchKkNxpGWWw6WLnfs4TteflH1S/zMkRrApPrV2lBTH0HOz7GccUIb6eSWEgnupLNcas8h25m8/cfxPo3A44ExEG9FvBibAdvHUuxsp9WJdYQ4DndakKV4iDncTvxYwcuxT+I5oLkpv8nO9+lcfH0RPmJ9DqSSO6NLM4Kd1JV0NUXYwLTxlcIQ4yDVAfoV4VTjnJ4kvi3lEv5cH8RWJPuPlZwzayOXryXaWB9t5LFt7l1kuVQgFWSb/zvEbbu0KcYGgGdtm9mIMTyVc/tfBwAm96yO/do6sY0NglUgO9QfxWyDLjLBed8Duq6Bx3EQKzHP7ZY//HI0L3xAuA86LU4e9+Eo44NYiZnYGyK3z6XJ8Qxsd51Ym4eOfe2wlVjifcJPhXnsMMqzwttJ/G/6gzAPpnPCP4TPCDOJVXRT0NOa+eWqyCrAC1MYhJeBVoRYhm5lar1W7n5yxIa4yG0lzmoe+YvC3JwwMmlA6Y5ZF8yWEx/7VeH41OJsHrToHUx85+BrSRjf20KcZjWdg7UnYOeg/wHO3QBAnaFv1wAAAABJRU5ErkJggg==" @click="NavTo('/pages/setting/index')">
 					</view>
@@ -16,20 +14,20 @@
 				<view class="my-wallet">
 					<view class="line1 ft11 flex-jb" @click="NavTo('/pages/user/partner/account_query')">
 						<view>账户余额
-							<p class="ft32">0</p>
+							<p class="ft32">{{shop_customer.money}}</p>
 						</view>
 						<p class="text">我的钱包</p>
 					</view>
 					<view class="line2 flex-jb ft10">
 						<view>
-							我的金豆
+							我的积分
 							<span class="icon icon-right-down"></span>
-							<p class="ft18">0</p>
+							<p class="ft18">{{shop_customer.integral}}</p>
 						</view>
 						<view class="van-hairline--left">
-							免费提货券
+							分享的优惠券
 							<span class="icon icon-right-down"></span>
-							<p class="ft18">0</p>
+							<p class="ft18">{{share_coupons_num}}</p>
 						</view>
 					</view>
 				</view>
@@ -68,12 +66,12 @@
 						</view>
 						<view class="line2 flex-jb">
 							<view>
-								<p class="ft14"><span class="ft20">256.85</span>/3521.95</p>
+								<p class="ft14"><span class="ft20">{{un_pay}}</span>/{{payed}}</p>
 								待提现/已提现
 							</view>
 							<view>
 								<!-- <span class="giveBtn ft13 cfff">赠送</span> -->
-							<span class="ft13 cfff bcG">提现</span></view>
+							<span class="ft13 cfff bcG" @click="toWithdraw">提现</span></view>
 						</view>
 					</view>
 					<ul class="l2 flex-ja ft14 solid radius">
@@ -115,16 +113,40 @@
 		},
 		data() {
 			return {
-
+				un_pay:0,
+				payed:0,
+				customer_num:0,
+				share_coupons_num:0,
+				shop_customer:{},
 			}
 		},
 		onShow() {
 			this.reLoadSize();
+		    this.loadData();
 		},
 		methods: {
-			
-			
-		}
+			async loadData(){
+				var _this = this;
+				await this.http.post("/partner/info",{'shop_id':1}).then(
+					async r => {
+						_this.un_pay = r.un_pay;
+						_this.payed = r.payed;
+						_this.customer_num = r.customer_num;
+						_this.share_coupons_num = r.share_coupons_num;
+						_this.shop_customer = r.shop_customer;
+						  
+				    }
+				)
+			},
+			async toWithdraw(){
+				var _this = this;
+				await this.http.post("/partner/toWithdraw",{'shop_id':1}).then(
+					async r => {
+						 
+				    }
+				)
+			}
+			}
 	}
 </script>
 

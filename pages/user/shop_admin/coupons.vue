@@ -3,22 +3,51 @@
     <view id="app">
       <view id="ticketCenter">
         <view class="van-tabs van-tabs--line">
-          <view class="van-tabs__wrap van-tabs__wrap--scrollable van-hairline--top-bottom">
+          <!-- <view class="van-tabs__wrap van-tabs__wrap--scrollable van-hairline--top-bottom">
             <view role="tablist" class="van-tabs__nav van-tabs__nav--line">
               <view role="tab" aria-selected="true" class="van-tab van-tab--active" style="flex-basis: 25%;"><span
                   class="van-tab__text van-tab__text--ellipsis">全部</span></view>
               <view role="tab" class="van-tab" style="flex-basis: 25%;"><span class="van-tab__text van-tab__text--ellipsis">满减券</span></view>
-              <!-- <view role="tab" class="van-tab" style="flex-basis: 22%;"><span class="van-tab__text van-tab__text--ellipsis">兑换券</span></view> -->
               <view role="tab" class="van-tab" style="flex-basis: 25%;"><span class="van-tab__text van-tab__text--ellipsis">折扣券</span></view>
               <view role="tab" class="van-tab" style="flex-basis: 25%;"><span class="van-tab__text van-tab__text--ellipsis">已使用</span></view>
               <view role="tab" class="van-tab" style="flex-basis: 25%;"><span class="van-tab__text van-tab__text--ellipsis">已过期</span></view>
-              <!-- <view class="van-tabs__line" style="width: 30px; transform: translateX(30px) translateX(-50%);"></view> -->
+              
+			  
             </view>
-          </view>
+          </view> -->
           <view class="van-tabs__content">
             <view role="tabpanel" class="van-tab__pane" style="">
               <view role="feed" class="merchantList van-list" aria-busy="true">
-                <couponlist :coupons="coupons"></couponlist>
+                
+				
+				<view class="ticket-list">
+				<view v-for="(item,index) in user_coupons" :key="index" :class=" item.is_used ?'usedTicket' :'coupon' ">
+				  <view class="left">
+				    <p class="num">
+				      {{ item.cut_money }}
+				    </p>
+				    <p class="ft18">元</p>
+				  </view>
+				
+				  <view class="center" @click="goCouponDetail(item)">
+				    <p class="couponName ft18 van-ellipsis">{{item.title}}</p>
+				    <p class="ft10" v-if="item.discount > 0 ">
+				      <span v-if="item.over_money > 0 ">消费满{{item.over_money}}元</span>
+				      <span v-if="item.discount>0">可抵扣{{item.discount}}%</span>
+				      <span v-else>可使用</span>
+				    </p>
+				    <p class="ft10">有效期：{{item.can_use_end_at}}</p>
+				  </view>
+				
+				  <view class="right ft14" @click="showCode(item)">
+				   <!-- <p class="verticalcenter" v-if="item.is_used==0"><br>立<br>即<br>使<br>用</p> -->
+				  </view>
+				</view>
+				</view>
+				
+				
+				
+				
                 <view class="van-list__finished-text center">没有更多了</view>
                 <view class="van-list__placeholder"></view>
               </view>
@@ -33,49 +62,47 @@
 </template>
 
 <script>
-  import qrcodeshow from "@/components/qrcodeshow.vue"
-  import couponlist from "@/components/couponlist.vue"
-  export default {
-    components: {
-      qrcodeshow,
-      couponlist,
 
-    },
+
+  export default {
     data() {
-      return {
-        coupons: [],
-        page: 1,
-      }
+    	return {
+    		user_coupons:[],
+    		page:1,
+	
+	
+    	}
     },
     onShow() {
-      this.reLoadSize();
-      this.LoadData();
+    	this.reLoadSize();
+    	this.loadData();
     },
     onPullDownRefresh() {
-      this.page = 1;
-      console.log("刷新");
-      this.LoadData();
+    	this.page = 1;
+    	this.user_coupons =[];
+    	this.loadData();
     },
     onReachBottom() {
-      this.page = this.page + 1;
-      console.log("加载下一页");
-      this.LoadData();
+    	this.page++;
+    	this.loadData();
     },
     methods: {
-      LoadData() {
-        var _this = this;
-        _this.post({
-          url: '/coupon/getList',
-          data: {
-            page: _this.page
-          },
-          success: function(res) {
-            if (res.data.err == 0) {
-              _this.coupons = res.data.data.user_coupons;
-            }
-          }
-        });
-      },
+    	async loadData() {
+    		await this.http.post("/shop_admin/getCoupons", {
+    			'shop_id': 1,
+    			page:this.page,
+    		}).then(
+    			async r => {
+    				if(this.page>r.page_info.total_page){
+    					uni.showToast({
+    						title:'没有更多信息'
+    					})
+    				}
+    				this.user_coupons = this.user_coupons.concat(r.user_coupons);
+    			}
+    		)
+    	},
+    
     }
   }
 </script>

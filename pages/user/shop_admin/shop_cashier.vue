@@ -6,16 +6,18 @@
           <view class="van-cell van-field">
             <view class="van-cell__title van-field__label"><span>手机号</span></view>
             <view class="van-cell__value van-field__value">
-              <view class="van-field__body"><input type="text" name="phone" placeholder="手机号或UID" class="van-field__control">
-                <view class="get-code">获取信息</view>
+              <view class="van-field__body"><input type="text" name="user_id" v-model="user_id" placeholder="手机号或UID" class="van-field__control">
+                <view class="get-code" @click="getUserCoupons">获取信息</view>
               </view>
             </view>
           </view>
+		
+		
 
           <view class="van-cell van-field">
             <view class="van-cell__title van-field__label"><span>核销码</span></view>
             <view class="van-cell__value van-field__value">
-              <view class="van-field__body"><input type="text" name="code" placeholder="优惠券核销码" class="van-field__control">
+              <view class="van-field__body"><input type="text" name="hash_code" v-model="hash_code" placeholder="优惠券核销码" class="van-field__control">
                 <view class="get-code">扫码</view>
               </view>
             </view>
@@ -24,18 +26,34 @@
           <view class="van-cell van-field">
             <view class="van-cell__title van-field__label"><span>原价</span></view>
             <view class="van-cell__value van-field__value">
-              <view class="van-field__body"><input type="text" name="password" placeholder="原价" class="van-field__control">
+              <view class="van-field__body"><input type="text" name="original_price" v-model="original_price" placeholder="原价" class="van-field__control">
 
               </view>
             </view>
           </view>
 
+		<view class="van-cell van-field">
+            <view class="van-cell__title van-field__label"><span>订单号</span></view>
+            <view class="van-cell__value van-field__value">
+              <view class="van-field__body"><input type="text" name="order_code" v-model="order_code" placeholder="订单号" class="van-field__control">
+
+              </view>
+            </view>
+          </view>
+
+		<view class="van-cell van-field">
+            <view class="van-cell__title van-field__label"><span>产品</span></view>
+            <view class="van-cell__value van-field__value">
+              <view class="van-field__body"><input type="text" name="product_rule_id" v-model="product_rule_id" placeholder="订单号" class="van-field__control">
+
+              </view>
+            </view>
+          </view>
 
           <view class="van-cell van-field">
             <view class="van-cell__title van-field__label"><span>余额抵扣</span></view>
             <view class="van-cell__value van-field__value">
-              <view class="van-field__body"><input type="text" name="password" placeholder="余额抵扣" class="van-field__control">
-
+              <view class="van-field__body"><input type="text" name="password" :value="discount.balance_cut_money || 0" disabled="disabled" placeholder="余额抵扣" class="van-field__control">
               </view>
             </view>
           </view>
@@ -44,7 +62,7 @@
           <view class="van-cell van-field">
             <view class="van-cell__title van-field__label"><span>会员折扣</span></view>
             <view class="van-cell__value van-field__value">
-              <view class="van-field__body"><input type="text" name="password" placeholder="会员折扣" class="van-field__control">
+              <view class="van-field__body"><input type="text" name="password" :value="discount.vip_cut_money || 0" disabled="disabled" placeholder="会员折扣" class="van-field__control">
 
               </view>
             </view>
@@ -53,7 +71,7 @@
           <view class="van-cell van-field">
             <view class="van-cell__title van-field__label"><span>优惠券抵扣</span></view>
             <view class="van-cell__value van-field__value">
-              <view class="van-field__body"><input type="text" name="password" placeholder="优惠券抵扣" class="van-field__control">
+              <view class="van-field__body"><input type="text" name="password" :value="discount.user_coupon_cut_money || 0" disabled="disabled" placeholder="优惠券抵扣" class="van-field__control">
 
               </view>
             </view>
@@ -62,13 +80,45 @@
           <view class="van-cell van-field">
             <view class="van-cell__title van-field__label"><span>实付款</span></view>
             <view class="van-cell__value van-field__value">
-              <view class="van-field__body"><input type="text" name="password" placeholder="实付款" class="van-field__control">
-                <view class="get-code">自动计算</view>
+              <view class="van-field__body"><input type="text" name="password" :value="discount.real_pay || 0 " placeholder="实付款" class="van-field__control">
+                <view class="get-code" @click="calculate">自动计算</view>
               </view>
             </view>
           </view>
+			<view class="user_info">
+				<view class="user_info_nickname">{{shop_customer.nickname}}</view>
+				<view class="user_info_phone">{{shop_customer.phone}}</view>
+				<view class="user_info_real_name">{{shop_customer.real_name}}</view>
+			</view>
+			<view class="user_coupons">
+				
+				<view class="ticket-list">
+				<view v-for="(item,index) in user_coupons" :key="index" :class=" item.is_used ?'usedTicket' :'coupon' " style="padding: 10px 0;" @click="couponToUse(item)">
+				  <view class="left">
+				    <p class="num">
+				      {{ item.cut_money }}
+				    </p>
+				    <p class="ft18">元</p>
+				  </view>
+				
+				  <view class="center" @click="goCouponDetail(item)">
+				    <p class="couponName ft18 van-ellipsis">{{item.title}}</p>
+				    <p class="ft10" v-if="item.discount > 0 ">
+				      <span v-if="item.over_money > 0 ">消费满{{item.over_money}}元</span>
+				      <span v-if="item.discount>0">可抵扣{{item.discount}}%</span>
+				      <span v-else>可使用</span>
+				    </p>
+				    <p class="ft10">有效期：{{item.can_use_end_at}}</p>
+				  </view>
+			
+				</view>
+				</view>
+				
+			</view>
 
-          <view style="margin: 16px;"><button type="submit" class="van-button van-button--info van-button--normal van-button--block van-button--round"><span
+
+
+          <view style="margin: 16px;" @click="cashierDo"><button type="submit" class="van-button van-button--info van-button--normal van-button--block van-button--round"><span
                 class="van-button__text">
                 提交
               </span></button></view>
@@ -82,14 +132,78 @@
   export default {
     data() {
       return {
-
+		user_coupons:[],
+		shop_customer:{},
+		user_coupon:{},
+		hash_code:'',
+		user_id:0,
+		original_price:0,
+		product_rule_id:0,
+		order_code:'',
+		discount:{},
       }
     },
     onShow() {
       this.reLoadSize();
     },
     methods: {
-
+		async getUserCoupons(){
+			await this.http.post("/shop_admin/getUserCoupons",{
+				'shop_id':1,
+				"page_zise":1000,
+				'user_id':this.user_id,
+			}).then(
+				async r => {
+					 this.user_coupons = r.user_coupons;
+					 this.shop_customer = r.shop_customer;
+			    }
+			)
+		},
+		async couponToUse(user_coupon){
+			var id = user_coupon.id || 0;
+			this.user_coupons = [];
+			await this.http.post("/shop_admin/couponToUse",{
+				'shop_id':1,
+				'user_coupon_id':id,
+			}).then(
+				async r => {
+					 this.hash_code = r.hash_code;
+					 this.user_coupon = r.user_coupon;
+			    }
+			)
+		},
+		
+		async cashierDo(user_coupon){
+			var id = user_coupon.id || 0;
+			this.user_coupons = [];
+			await this.http.post("/shop_admin/cashierDo",{
+				'shop_id':1,
+				'user_coupon_hash_code':this.hash_code,
+				'original_price':this.original_price,
+				'product_rule_id':this.product_rule_id,
+				'order_code':this.order_code,
+			}).then(
+				async r => {
+					 
+			    }
+			)
+		},
+		async calculate(user_coupon){
+			var id = user_coupon.id || 0;
+			this.user_coupons = [];
+			await this.http.post("/shop_admin/calculate",{
+				'shop_id':1,
+				'user_coupon_hash_code':this.hash_code,
+				'original_price':this.original_price,
+				'product_rule_id':this.product_rule_id,
+				'order_code':this.order_code,
+			}).then(
+				async r => {
+					 this.discount = r.discount;
+			    }
+			)
+		}
+		
     }
   }
 </script>

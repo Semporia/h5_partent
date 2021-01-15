@@ -10,36 +10,43 @@
 				
 				</view>	
 				
-
-				
-				
 				<form class="van-form">
 					<view class="van-cell van-field">
 						<view class="van-cell__title van-field__label"><span>真实姓名</span></view>
 						<view class="van-cell__value van-field__value">
-							<view class="van-field__body"><input type="text" name="real_name" v-model="user.real_name" placeholder="真实姓名" class="van-field__control"></view>
+							<view class="van-field__body"><input type="text" name="real_name" v-model="shop_customer.real_name" placeholder="真实姓名" class="van-field__control"></view>
 						</view>
 					</view>
 
 					<view class="van-cell van-field">
 						<view class="van-cell__title van-field__label"><span>手机号</span></view>
 						<view class="van-cell__value van-field__value">
-							<view class="van-field__body"><input type="text" name="tel" v-model="user.tel"  placeholder="手机号" class="van-field__control"></view>
+							<view class="van-field__body"><input type="text" name="tel" v-model="shop_customer.tel"  placeholder="手机号" class="van-field__control"></view>
 						</view>
 					</view>
 					<view class="van-cell van-field">
 						<view class="van-cell__title van-field__label"><span>公司名</span></view>
 						<view class="van-cell__value van-field__value">
-							<view class="van-field__body"><input type="text" name="company_name"  v-model="user.company_name"  placeholder="公司名" class="van-field__control"></view>
+							<view class="van-field__body"><input type="text" name="company_name"  v-model="shop_customer.company_name"  placeholder="公司名" class="van-field__control"></view>
+						</view>
+					</view>
+					
+					
+					
+					<view class="van-cell van-field">
+						<view class="van-cell__title van-field__label"><span>公司简称</span></view>
+						<view class="van-cell__value van-field__value">
+							<view class="van-field__body"><input type="text" name="company_position"  v-model="shop_customer.company_short_name"  placeholder="公司简称" class="van-field__control"></view>
 						</view>
 					</view>
 					
 					<view class="van-cell van-field">
 						<view class="van-cell__title van-field__label"><span>职务</span></view>
 						<view class="van-cell__value van-field__value">
-							<view class="van-field__body"><input type="text" name="company_position"  v-model="user.company_position"  placeholder="职务" class="van-field__control"></view>
+							<view class="van-field__body"><input type="text" name="company_position"  v-model="shop_customer.company_position"  placeholder="职务" class="van-field__control"></view>
 						</view>
 					</view>
+					
 					
 					<view style="margin: 16px;"><button @click="updateUserInfo" type="submit" class="van-button van-button--info van-button--normal van-button--block van-button--round"><span class="van-button__text" >
 								提交
@@ -58,14 +65,26 @@
 		        },
 		data() {
 			return {
+				shop_customer:{},
 				user:{}
 			}
 		},
 		onShow() {
 			this.reLoadSize();
-			this.user = this.getLocalUser();
+			this.loadData();
 		},
 		methods: {
+			
+			async loadData(){
+				var _this = this;
+				await this.http.post("/user/info",{'shop_id':1}).then(
+					async r => {
+						_this.shop_customer = r.shop_customer;  
+						_this.user = r.user;  
+				    }
+				)
+			},
+			
 			myUpload(rsp){
 				var _this = this;
 				const filePath = rsp.path;
@@ -101,7 +120,7 @@
 				var _this = this;
 				_this.post({
 					url:'/User/updateInfo',
-					data:_this.user,
+					data:_this.shop_customer,
 					success:function(res){
 						
 					}

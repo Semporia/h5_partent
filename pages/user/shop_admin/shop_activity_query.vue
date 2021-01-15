@@ -3,7 +3,7 @@
     <view id="app">
       <view class="my-menu-list">
 
-        <view class="item" @click="NavTo('/pages/user/partner/balance')">
+        <view class="item" @click="NavTo('/pages/user/shop_admin/un_send_coupons')">
           <view class="item-left">
             <view class="icon balance"></view>
             <view class="text">优惠券列表</view>

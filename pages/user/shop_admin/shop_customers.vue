@@ -30,6 +30,7 @@
 		data() {
 			return {
 				shop_customers:[],
+				page:1,
 			}
 		},
 		onShow() {
@@ -39,12 +40,29 @@
 		onLoad() {
 			this.loadData();
 		},
+		onPullDownRefresh() {
+			this.page = 1;
+			this.shop_accounts =[];
+			this.loadData();
+		},
+		onReachBottom() {
+			this.page = this.page+1;
+			this.loadData();
+		},
 		methods: {
 			async loadData(){
-				var _this = this;
-				await this.http.post("/shop_admin/getCustomers",{'shop_id':1}).then(
+				await this.http.post("/shop_admin/getCustomers",{
+					'shop_id':1,
+					'page':this.page,
+				
+				}).then(
 					async r => {
-						_this.shop_customers = r.shop_customers;   
+						if(this.page>r.page_info.total_page){
+							uni.showToast({
+								title:'没有更多信息'
+							})
+						}
+						this.shop_customers = this.shop_customers.concat(r.shop_customers);   
 				    }
 				)
 			},

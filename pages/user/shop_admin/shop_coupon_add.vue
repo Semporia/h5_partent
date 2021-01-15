@@ -199,6 +199,7 @@
 				var _this = this;
 				 _this.activity_coupon.start_at = _this.start_at+" " + _this.start_at_time;
 				 _this.activity_coupon.end_at = _this.end_at +" "+_this.end_at_time;
+				 _this.activity_coupon['coupon_id'] =  _this.activity_coupon.id;
 				_this.post({
 					url: '/shop_admin/updateCoupon',
 					data: _this.activity_coupon ,

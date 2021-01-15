@@ -18,7 +18,9 @@
           <view class="van-tabs__content">
             <view role="tabpanel" class="van-tab__pane" style="">
               <view role="feed" class="merchantList van-list" aria-busy="true">
-                <view class="ticket-list">
+                
+				
+				<view class="ticket-list">
 				<view v-for="(item,index) in coupons" :key="index" :class=" item.is_used ?'usedTicket' :'coupon' ">
 				  <view class="left">
 				    <p class="num">

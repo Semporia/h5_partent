@@ -7,152 +7,17 @@
 				<view class="fansWrap">
 					<!-- <p class="ft18">店铺的顾客</p> -->
 					<ul class="fansList">
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')" >
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEKKu8XG0qLywIoxxMjv7OAYGps5xyJheC8YvahN6aNOuOawnTwMmaodxJfjZJlVcdBiavst5nIYm6Q/132">
-								<p class="ft18 van-ellipsis">Miss_娜娜</p>
+						<li v-for="(item,index) in shop_customers" class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')" >
+							<view class="left"><img :src="item.headimgurl">
+								<p class="ft18 van-ellipsis">{{item.nickname}}</p>
 							</view>
 							<view class="right ft12">
 								<p class="ft10 ">135.92 / 2536.00</p>
-								<p class="ft10 ">10人</p>
-								<p class="icon-link">2020/12/16 19:28</p>
+								<p class="ft10 ">收益率：{{item.partner_point}} %</p>
+								<p class="icon-link">{{item.created_at}}</p>
 							</view>
 						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTI9WGvMacyAQXvX3MoQ9n2p1NmQfG53ibtrMhJz96KD9ibVLOiaXI0SzKQrCxGuNaHF0pPvpvImZtr9g/132">
-								<p class="ft18 van-ellipsis">Ｗ ei 儿</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/16 15:13</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/niaoHvmuL0EE5K6HDwOOVX5ycXgHfcBynD2OLeib1sYpicCpciaiavSep5ibXDSlVzn9Jrw97yica6QyHLkPQTgnU4wkQ/132">
-								<p class="ft18 van-ellipsis">注塑之家18658483830</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/16 13:54</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJGtG01ksyBtkx7jqPAe4KrmNHwRKia6mibhib52n3PGhsOrtWUNRob5erwHpickWwujAFMEHicK0ydrQQ/132">
-								<p class="ft18 van-ellipsis">丟了微笑葽怎伪裝</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/15 10:00</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eo6lyGpEShLCvEkZy2NFqBXhUVASz2u0NSPjbPPTxO2zstQNicfASU3cTfbflToq5LNQYdeqITvtgA/132">
-								<p class="ft18 van-ellipsis">應俊傑（应俊杰）</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/14 21:00</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKvkLF6FIjLAyXia1j8ILvmm10TwpsWLAk6mPMcyV4eVgZicg2gUHFxAa9dHFFprb7cCCiamuY9yibWBw/132">
-								<p class="ft18 van-ellipsis">一切都会过去</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/16 12:29</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLuUlSvfYF9VhOHca58gXqOgGEibp9YhOmVfcqzSx7MaPia6l01J1oVNsKuNMdCtmhj2aIQNsgvZhqw/132">
-								<p class="ft18 van-ellipsis">墨紫&amp;微醺</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/12 09:50</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTKgYuT4PMHzd3NFicTiaSRcYdW3zocILr6E4C0gNfeFt9uzeV7da7mUpm0AEQoOiazvr30l5jHmicz5JA/132">
-								<p class="ft18 van-ellipsis">A 西雅图美业💋智薰</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/10 14:19</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLSrpu0ZJm6pibwwQU67ia1ibCCicXfpmPMtTlJhIDvIrESf939bt0icf9BmIEXunweVZP4QiaIsVjp8CSQ/132">
-								<p class="ft18 van-ellipsis">美业(门店+学校)策划导师-雷哥</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/10 14:14</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/I9NiagNxWTibvsnDFrlNWLRQickOVBIGyMohOt5nx0Mb7pXbmiawnucNdKBLttyv73syP1Au2dkMN0BzMlggAwtuAg/132">
-								<p class="ft18 van-ellipsis">坐拥百态</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/08 21:54</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLOgqkXdyrgWnQjrvCEXFs54BPBqbYfic4Pw90k2qRKdorx4qoYibD6wMAmMMFAdeE9xGxzic41p5G5A/132">
-								<p class="ft18 van-ellipsis">晓玉</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/08 19:58</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTIM4iamRcx1aa6a7AwDLSuJHTEghY7VetnJw1AxBBdoELgyDglYVyKw08U3medJIDsibDR98ja3aTuQ/132">
-								<p class="ft18 van-ellipsis">明珠（lili ）studio</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/08 19:46</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83ep8wh1M9qCzqfRMmAAuia8PlWsicEia0oicyNSxQmjKafLY1gmuia77l62BroqQPpwrb9XovlqpvIqANsA/132">
-								<p class="ft18 van-ellipsis">竺长江</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/08 14:44</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTJt18m6r8LJW5bwVYvYwSQBIFLhfABrA1ROyg5hzCDWRBVUr16NNvhRRh8o9picY9skhibrYEmjnGrA/132">
-								<p class="ft18 van-ellipsis">许广淼</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/08 13:33</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83eqrZoBHUwEfzDA7ES8s1RwvNlK9YFbMgW9vqZrxVDaENc8NfXicWGWR9tGcyMIwnYsUvzzJ1I338aQ/132">
-								<p class="ft18 van-ellipsis">房产经纪人范炜坤 「18067381096」</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/08 10:13</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/quaAPZib2arYia7XhUQAd83k70yAEJibW6eYSGpuMDI5jqe2NZsbN71oL5hcibBh8megFHvlIRXoQBoNwC3sbEk6jA/132">
-								<p class="ft18 van-ellipsis">形象管理-艺秦</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/07 15:38</p>
-							</view>
-						</li>
-						<li class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/DYAIOgq83epWjfLTcLCvZiamaJcSnm7acXrY6ib37x7TFDmJFlBzLX6WkSDYHiatACAicD6ia5qiaDmDE9TChYR78vTA/132">
-								<p class="ft18 van-ellipsis">心蕊商学院，徐玄</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/06 21:28</p>
-							</view>
-						</li>
-						<li class="fans flex-jb">
-							<view class="left"><img src="https://thirdwx.qlogo.cn/mmopen/vi_32/Q0j4TwGTfTLrIcw03ibKkkjD2qvs2zPRsV2ibAVEH85sh8eO4aQFVNnZTdxDrs077XLVQ7iaaFbrnZwdCkmsW9Q5Q/132">
-								<p class="ft18 van-ellipsis">修芔虓帅</p>
-							</view>
-							<view class="right ft12">
-								<p class="icon-link">2020/12/06 19:52</p>
-							</view>
-						</li>
+						
 					</ul>
 				</view>
 				<!---->
@@ -165,14 +30,42 @@
 	export default {
 		data() {
 			return {
-
+				shop_customers:[],
+				page:1,
 			}
 		},
 		onShow() {
 			this.reLoadSize();
 		},
+		onLoad() {
+			this.loadData();
+		},
+		onPullDownRefresh() {
+			this.page = 1;
+			this.shop_customers =[];
+			this.loadData();
+		},
+		onReachBottom() {
+			this.page++;
+			this.loadData();
+		},
 		methods: {
-
+			async loadData() {
+				await this.http.post("/shop_admin/getPartners", {
+					'shop_id': 1,
+					page:this.page,
+				}).then(
+					async r => {
+						if(this.page>r.page_info.total_page){
+							uni.showToast({
+								title:'没有更多信息'
+							})
+						}
+						this.shop_customers = this.shop_customers.concat(r.shop_customers);
+					}
+				)
+			},
+		
 		}
 	}
 </script>

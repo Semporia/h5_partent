@@ -3,10 +3,10 @@
 		<view id="app">
 			<view class="formWrap">
 				
-				<view class="update-headimg">
+				<!-- <view class="update-headimg">
 					<image class="x-head-img" src="http://data.zhusutao.com/data/img/head.jpg"></image>
 					<view></view>
-				</view>
+				</view> -->
 				
 				<form class="van-form">
 					<view class="van-cell van-field">

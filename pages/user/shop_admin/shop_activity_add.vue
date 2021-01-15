@@ -124,7 +124,35 @@
 							<view class="van-field__body"><textarea type="text" name="content" v-model="activity.content" class="van-field__control"> </textarea></view>
 						</view>
 					</view>
-
+					
+					
+					<view class="activity_coupons">
+						
+						<view class="ticket-list">
+						<view v-for="(item,index) in activity_coupons" :key="index" :class="{'add':e(item)}" class="coupon"  style="padding: 10px 0;" @click="activityToUse(item)">
+						  <view class="left">
+						    <p class="num">
+						      {{ item.cut_money }}
+						    </p>
+						    <p class="ft18">元</p>
+						  </view>
+						
+						  <view class="center" >
+						    <p class="couponName ft18 van-ellipsis">{{item.title}}</p>
+						    <p class="ft10" v-if="item.discount > 0 ">
+						      <span v-if="item.over_money > 0 ">消费满{{item.over_money}}元</span>
+						      <span v-if="item.discount>0">可抵扣{{item.discount}}%</span>
+						      <span v-else>可使用</span>
+						    </p>
+						    <p class="ft10">有效期：{{item.can_use_end_at}}</p>
+						  </view>
+					
+						</view>
+						</view>
+						
+					</view>
+					
+					
 					<view style="margin: 16px;" @click="updateActivity"><button type="submit" class="van-button van-button--info van-button--normal van-button--block van-button--round"><span
 							 class="van-button__text">
 								提交
@@ -151,15 +179,26 @@
 				end_at: "",
 				end_at_time: "00:00:00",
 				activity: {},
+				activity_coupons:[],
+				add_activity_coupon_ids:[],
 
 			}
 		},
-		onShow(option) {
-			this.reLoadSize();
+		onLoad(option) {
 			this.loadData(option);
 		},
+		onShow(option) {
+			this.reLoadSize();
+		},
 		methods: {
-			loadData(option) {
+			e(item){
+				var a = this.add_activity_coupon_ids.indexOf(item.id);
+				if(a!=-1){
+					return true
+				}
+				return false
+			},
+			async loadData(option) {
 				var _this = this;
 				uni.showLoading({
 					title: '加载中'
@@ -175,8 +214,27 @@
 						}
 					}
 				});
+				
+				await this.http.post("/shop_admin/getUnSendCoupon", {
+					'shop_id': 1,
+					page:this.page,
+					'page_size':1000,
+				}).then(
+					async r => {
+						if(this.page>r.page_info.total_page){
+							uni.showToast({
+								title:'没有更多信息'
+							})
+						}
+						this.activity_coupons = this.activity_coupons.concat(r.activity_coupons);
+					}
+				)
+				
 			},
-
+			activityToUse(item){
+				this.add_activity_coupon_ids.push(item.id);
+			},
+			
 			updateActivityBigFile(rsp) {
 				var _this = this;
 				const filePath = rsp.path;
@@ -240,16 +298,20 @@
 				var _this = this;
 				_this.activity.start_at = _this.start_at + " " + _this.start_at_time;
 				_this.activity.end_at = _this.end_at + " " + _this.end_at_time;
+				
+				this.activity['activity_id'] = this.activity.id ;
 				console.log(_this.activity);
-				// _this.post({
-				// 	url: '/shop_admin/updateActivity',
-				// 	data: _this.activity,
-				// 	success: function(res) {
-				// 		uni.showToast({
-				// 			title:res.data.msg
-				// 		})
-				// 	}
-				// });
+				
+				_this.activity['add_activity_coupon_ids'] = this.add_activity_coupon_ids.join(',');
+				_this.post({
+					url: '/shop_admin/updateActivity',
+					data: _this.activity,
+					success: function(res) {
+						uni.showToast({
+							title:res.data.msg
+						})
+					}
+				});
 			},
 
 			onShowStartDatePicker(e) {
@@ -270,6 +332,10 @@
 </script>
 
 <style>
+	
+	.add{
+		background: #000000;
+	}
 	.activity-fimg {
 		width: 4rem;
 		height: 4rem;

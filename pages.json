@@ -386,6 +386,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/user/shop_admin/un_send_coupons",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",

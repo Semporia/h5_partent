@@ -12,13 +12,13 @@
         </view>
 
 
-        <view class="item" @click="NavTo('/pages/setting/renz')">
+        <!-- <view class="item" @click="NavTo('/pages/setting/renz')">
           <view class="item-left">
             <view class="icon balance"></view>
             <view class="text">实名认证</view>
           </view>
           <view class="right-arrow"></view>
-        </view>
+        </view> -->
 
 
         <view class="item" @click="NavTo('/pages/setting/update_password')">
@@ -30,7 +30,7 @@
         </view>
 
 
-        <view class="item" @click="NavTo('/pages/user/home')">
+        <!-- <view class="item" @click="NavTo('/pages/user/home')">
           <view class="item-left">
             <view class="icon balance"></view>
             <view class="text">普通用户中心</view>
@@ -52,7 +52,7 @@
             <view class="text">店铺用户中心</view>
           </view>
           <view class="right-arrow"></view>
-        </view>
+        </view> -->
 
         <view class="item" @click="logOut">
           <view class="item-left">

@@ -128,6 +128,11 @@
 	onLoad() {
 		this.loadData();
 	},
+	onPullDownRefresh() {
+		this.page = 1;
+		this.activitys =[];
+		this.loadData();
+	},
 	onReachBottom() {
 		this.page++;
 		this.loadData();

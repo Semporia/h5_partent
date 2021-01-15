@@ -2,96 +2,17 @@
 	<view>
 		<view id="app">
 			<view role="feed" class="mealList van-list">
-				<view class="mealCard">
-					<view class="list">
+				<view v-for="(item,index) in  withdraws" :key="index" class="mealCard">
+					<view  class="list">
 						<view>提现</view>
-						<view>-396</view>
+						<view>-{{item.money}}</view>
 					</view>
 					<view class="list">
-						<view>2020-12-16 20:49:15</view>
+						<view>{{item.created_at}}</view>
 						<view>已提现</view>
 					</view>
 				</view>
-				<view class="mealCard">
-					<view class="list">
-						<view>提现</view>
-						<view>-99</view>
-					</view>
-					<view class="list">
-						<view>2020-12-15 16:23:47</view>
-						<view>已提现</view>
-					</view>
-				</view>
-				<view class="mealCard">
-					<view class="list">
-						<view>提现</view>
-						<view>-99</view>
-					</view>
-					<view class="list">
-						<view>2020-12-14 21:49:13</view>
-						<view>已提现</view>
-					</view>
-				</view>
-				<view class="mealCard">
-					<view class="list">
-						<view>提现</view>
-						<view>-99</view>
-					</view>
-					<view class="list">
-						<view>2020-12-12 21:36:27</view>
-						<view>已提现</view>
-					</view>
-				</view>
-				<view class="mealCard">
-					<view class="list">
-						<view>提现</view>
-						<view>-198</view>
-					</view>
-					<view class="list">
-						<view>2020-12-10 15:59:19</view>
-						<view>已提现</view>
-					</view>
-				</view>
-				<view class="mealCard">
-					<view class="list">
-						<view>提现</view>
-						<view>-99</view>
-					</view>
-					<view class="list">
-						<view>2020-12-08 22:20:22</view>
-						<view>已提现</view>
-					</view>
-				</view>
-				<view class="mealCard">
-					<view class="list">
-						<view>提现</view>
-						<view>-396</view>
-					</view>
-					<view class="list">
-						<view>2020-12-08 20:21:47</view>
-						<view>已提现</view>
-					</view>
-				</view>
-				<view class="mealCard">
-					<view class="list">
-						<view>提现</view>
-						<view>-99</view>
-					</view>
-					<view class="list">
-						<view>2020-12-08 10:20:58</view>
-						<view>已提现</view>
-					</view>
-				</view>
-				<view class="mealCard">
-					<view class="list">
-						<view>提现</view>
-						<view>-297</view>
-					</view>
-					<view class="list">
-						<view>2020-12-07 16:18:45</view>
-						<view>已提现</view>
-					</view>
-				</view>
+				
 				<view class="van-list__finished-text">没有更多了</view>
 				<view class="van-list__placeholder"></view>
 			</view>
@@ -103,14 +24,22 @@
 	export default {
 		data() {
 			return {
-
+				withdraws:[],
 			}
 		},
 		onShow() {
 			this.reLoadSize();
+			this.loadData();
 		},
 		methods: {
-
+			async loadData(){
+				var _this = this;
+				await this.http.post("/partner/getWithdraws",{'shop_id':1}).then(
+					async r => {
+						_this.withdraws = r.withdraws;  
+				    }
+				)
+			}
 		}
 	}
 </script>

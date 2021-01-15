@@ -32,21 +32,35 @@
 		data() {
 			return {
 				shop_accounts:[],
+				page:1,
 			}
 		},
 		onShow() {
 			this.reLoadSize();
 			this.loadData();
 		},
+		onPullDownRefresh() {
+			this.page = 1;
+			this.shop_accounts =[];
+			this.loadData();
+		},
+		onReachBottom() {
+			this.page++;
+			this.loadData();
+		},
 		methods: {
 			async loadData() {
-				var _this = this;
 				await this.http.post("/shop_admin/getAccounts", {
-					'shop_id': 1
+					'shop_id': 1,
+					page:this.page,
 				}).then(
 					async r => {
-						_this.shop_accounts = r.shop_accounts;
-
+						if(this.page>r.page_info.total_page){
+							uni.showToast({
+								title:'没有更多信息'
+							})
+						}
+						this.shop_accounts = this.shop_accounts.concat(r.shop_accounts);
 					}
 				)
 			},
