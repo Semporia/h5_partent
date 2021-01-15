@@ -349,6 +349,6 @@
 		font-family: vant-icon;
 		font-style: normal;
 		font-display: auto;
-		src: url(../../../static/fonts/vant-icon-db1de1.woff2) format("woff2"), url(../../../static/fonts/vant-icon-db1de1.woff) format("woff"), url(../../../static/fonts/vant-icon-db1de1.ttf) format("truetype");
+		src: url(@/static/fonts/vant-icon-db1de1.woff2) format("woff2"), url(@/static/fonts/vant-icon-db1de1.woff) format("woff"), url(@/static/fonts/vant-icon-db1de1.ttf) format("truetype");
 	}
 </style>

@@ -14,7 +14,7 @@
 				<view class="my-wallet">
 					<view class="line1 ft11 flex-jb" @click="NavTo('/pages/user/accounts')">
 						<view>账户余额
-							<p class="ft32">{{ shop_customer.money || '0.00' }}</p>
+							<p class="ft32">{{ shop_customer.money + shop_customer.give_money || '0.00' }}</p>
 						</view>
 						<p class="text">我的账单</p>
 					</view>
@@ -82,7 +82,7 @@
 
 
 					<ul class="l2 flex-ja ft14 solid">
-						<li @click="NavTo('/pages/user/partner/partner_customers')"><img src="../../static/img/promote.png">
+						<li @click="NavTo('/pages/user/customers')"><img src="../../static/img/promote.png">
 							我的推广
 						</li>
 						<li @click="NavTo('/pages/user/my_activitys')"><img src="../../static/img/mealIcon.png">
@@ -91,7 +91,7 @@
 						<li @click="NavTo('/pages/user/coupons')"><img src="../../static/img/coupon.png">
 							我的优惠券
 						</li>
-						<li @click="NavTo('/pages/user/renz')"><img src="../../static/img/incoming.png">
+						<!-- <li @click="NavTo('/pages/user/renz')"><img src="../../static/img/incoming.png">
 							个人认证
 						</li>
 						<li><img src="../../static/img/rz.png">
@@ -99,7 +99,7 @@
 						</li>
 						<li><img src="../../static/img/address.png">
 							收货地址
-						</li>
+						</li> -->
 					</ul>
 
 				</view>

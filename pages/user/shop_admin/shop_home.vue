@@ -4,8 +4,8 @@
 			<view class="pb50 mine">
 				<view class="my-info">
 					<view class="my-content flex-jb">
-						<view class="left"><img src="@/static/img/yslogo.png" class="my-avatar">
-							<view class="my-name ft22">甬士健身(集仕芯谷) <view class="ft14" style="margin-top: 7px;">店铺ID：37695</view>
+						<view class="left"><img :src="shop.share_pic" class="my-avatar">
+							<view class="my-name ft22">{{shop.shop_name}} <view class="ft14" style="margin-top: 7px;">店铺ID：{{shop.id}}</view>
 							</view><img src="../../../static/img/vip.png" class="vipIcon">
 						</view><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAAEgBckRAAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAMKADAAQAAAABAAAAMAAAAADbN2wMAAAEiklEQVRoBc2Zu25UMRCGk3BpEAV0IMRKEUSAgAoJCmjIOxCeAgra8BDUhDcgBApegAokCq4SBZckXDqggA5xme+wY816x/bx2ZNNRpp4PPN7PL4ce7yZmUnQrNH/NfKsGqyysc8ZFKICgzDWIiAEbY1WHzkdVkErL6CjiXWBLtBhkayxkbMtaPpi2Mq2RB9oXSSMv4S1ixGwjmNDAEeFc/RcjHsUgEc8Kat+r9FhO6kGBWoJELotrDrKTZRKx0WwxlgGt1/BWr4WAeCpoQKP1MeAQ3tT2K2hk2LtI7KGsSjaFWGtB1DsAYBHAUf38H3hFBgH2O4i7BL+I3yCSoGYiIOK0VgpX6pSSqtHDmQNQSnCQ+Ex2yBSWk8W3OgZvQVINUuXrDX2ZuvMYkNhfof1VG8BZ7fBsE1wFEDWkJNxppvxmwMciE7DXnLsRdWacaCOcmXRoQUsVzrXjq2PEVmnQoF9lbP68Rwa6c6vvBI1Cwlf8CFj2mtWwzefitzirPyupo09UOKOzluvRo5xth5gDNkacjIRxx94Dv9Je2Ef54BdberfLWudhvPB9eYoV0VX04njoqxifW4JX09AP4v+YsLWWk0nHqUOPg/r6uzCDxwEByBTyCnQqbN4/vlOyGn4IONsZEN01RR3kKtX76BSJuN15o6Ai9+jr56yoCOBeJTCcFKy70n7vOhqdFxU68Jh4WvOopqO2F0N8SHVNKzBNsN4P+yoVHDJMFqYKS3RdwGEaSJzy0WmSbR1SlKXasN3MkYpMHdAilJtLmuDMARVOOUbR1dSuW1S0aD3iGs01YZjZYQ2pZYCo+cBYyl+AXltB9qAM90DeDru41wmEbdhxzUXRmzoq47/hvpyaP1cUeeU9un2QOoWWCMvWKc5uUsnOX+urSbyZ64HUbb50FJtrf6trVg51YFdE/AfhfWgo9TnNzYo/BLwv9r+LzkP34lH5Eoc9c1e9wDoUldmCm/1OCaAG8J3hH8LPxFuQwR3T3gg/FOYGZoKsTTchKkNxpGWWw6WLnfs4TteflH1S/zMkRrApPrV2lBTH0HOz7GccUIb6eSWEgnupLNcas8h25m8/cfxPo3A44ExEG9FvBibAdvHUuxsp9WJdYQ4DndakKV4iDncTvxYwcuxT+I5oLkpv8nO9+lcfH0RPmJ9DqSSO6NLM4Kd1JV0NUXYwLTxlcIQ4yDVAfoV4VTjnJ4kvi3lEv5cH8RWJPuPlZwzayOXryXaWB9t5LFt7l1kuVQgFWSb/zvEbbu0KcYGgGdtm9mIMTyVc/tfBwAm96yO/do6sY0NglUgO9QfxWyDLjLBed8Duq6Bx3EQKzHP7ZY//HI0L3xAuA86LU4e9+Eo44NYiZnYGyK3z6XJ8Qxsd51Ym4eOfe2wlVjifcJPhXnsMMqzwttJ/G/6gzAPpnPCP4TPCDOJVXRT0NOa+eWqyCrAC1MYhJeBVoRYhm5lar1W7n5yxIa4yG0lzmoe+YvC3JwwMmlA6Y5ZF8yWEx/7VeH41OJsHrToHUx85+BrSRjf20KcZjWdg7UnYOeg/wHO3QBAnaFv1wAAAABJRU5ErkJggg=="
 						 class="setting" @click="NavTo('/pages/setting/index')">
@@ -57,6 +57,8 @@
 					</ul>
 
 					<img src="../../../static/img/hd.png" alt="">
+
+
 
 
 					<ul class="l2 flex-ja ft14">
@@ -113,13 +115,31 @@
 		},
 		data() {
 			return {
-
+				shop:{},
+				account_today_money:{},
+				shop_customer_num:{},
+				shop_customer_num:0
 			}
 		},
 		onShow() {
 			this.reLoadSize();
 		},
+		onLoad() {
+			this.loadData();
+		},
 		methods: {
+			async loadData(){
+				var _this = this;
+				await this.http.post("/shop_admin/info",{'shop_id':1}).then(
+					async r => {
+				        this.loading = false;
+				        this.shop = r.shop;
+						this.account_today_money = r.account_today_money;
+						this.account_this_mouth_money = r.account_this_mouth_money;
+						this.shop_customer_num = r.shop_customer_num;
+				    }
+				)
+			},
 			toggleUserHome(url) {
 				var content;
 				switch (url) {

@@ -12,50 +12,56 @@
 					<view class="van-cell van-field">
 						<view class="van-cell__title van-field__label"><span>店铺名称</span></view>
 						<view class="van-cell__value van-field__value">
-							<view class="van-field__body"><input type="text" name="real_name" placeholder="店铺名称" class="van-field__control"></view>
+							<view class="van-field__body"><input type="text" name="real_name" v-model="shop.shop_name" placeholder="店铺名称" class="van-field__control"></view>
 						</view>
 					</view>
 
 					<view class="van-cell van-field">
 						<view class="van-cell__title van-field__label"><span>联系人</span></view>
 						<view class="van-cell__value van-field__value">
-							<view class="van-field__body"><input type="text" name="phone" placeholder="联系人" class="van-field__control"></view>
+							<view class="van-field__body"><input type="text" name="name" v-model="shop.name" placeholder="联系人" class="van-field__control"></view>
 						</view>
 					</view>
 					
 					<view class="van-cell van-field">
 						<view class="van-cell__title van-field__label"><span>手机号</span></view>
 						<view class="van-cell__value van-field__value">
-							<view class="van-field__body"><input type="text" name="phone" placeholder="手机号" class="van-field__control"></view>
+							<view class="van-field__body"><input type="text" name="tel"  v-model="shop.tel" placeholder="手机号" class="van-field__control"></view>
 						</view>
 					</view>
 					
 					<view class="van-cell van-field">
 						<view class="van-cell__title van-field__label"><span>地址</span></view>
 						<view class="van-cell__value van-field__value">
-							<view class="van-field__body"><input type="text" name="phone" placeholder="详细地址" class="van-field__control"></view>
+							<view class="van-field__body"><input type="text" name="address" v-model="shop.address" placeholder="详细地址" class="van-field__control"></view>
 						</view>
 					</view>
 					
 					
 					<view class="van-cell van-field">
-						<view class="van-cell__title van-field__label"><span>经纬度</span></view>
+						<view class="van-cell__title van-field__label"><span>经度</span></view>
 						<view class="van-cell__value van-field__value">
-							<view class="van-field__body"><input type="text" name="phone" placeholder="经纬度 顾客导航用" class="van-field__control"></view>
+							<view class="van-field__body"><input type="text" name="longitude"  v-model="shop.longitude" placeholder="经度 顾客导航用" class="van-field__control"></view>
 						</view>
 					</view>
 					
+					<view class="van-cell van-field">
+						<view class="van-cell__title van-field__label"><span>纬度</span></view>
+						<view class="van-cell__value van-field__value">
+							<view class="van-field__body"><input type="text" name="latitude"  v-model="shop.latitude" placeholder="纬度 顾客导航用" class="van-field__control"></view>
+						</view>
+					</view>
 					
 					
 					
 					<view class="van-cell van-field">
 						<view class="van-cell__title van-field__label"><span>店铺简介</span></view>
 						<view class="van-cell__value van-field__value">
-							<view class="van-field__body"><textarea type="text" name="company"  class="van-field__control"> </textarea></view>
+							<view class="van-field__body"><textarea type="text" name="content" v-model="shop.content"  class="van-field__control"></textarea></view>
 						</view>
 					</view>
 					
-					<view style="margin: 16px;"><button type="submit" class="van-button van-button--info van-button--normal van-button--block van-button--round"><span
+					<view style="margin: 16px;" @click="updateShopInfo"><button type="submit" class="van-button van-button--info van-button--normal van-button--block van-button--round"><span
 							 class="van-button__text">
 								提交
 							</span></button></view>
@@ -69,14 +75,31 @@
 	export default {
 		data() {
 			return {
-
+				shop:{},
 			}
 		},
 		onShow() {
 			this.reLoadSize();
+			this.loadData();
 		},
 		methods: {
-
+			async loadData(){
+				var _this = this;
+				await this.http.post("/shop_admin/info",{'shop_id':1}).then(
+					async r => {
+						_this.shop = r.shop;   
+				    }
+				)
+			},
+			async updateShopInfo(){
+				var _this = this;
+				this.shop['shop_id'] = 1;
+				await this.http.post("/shop_admin/updateShopInfo",this.shop).then(
+					async r => {
+						 
+				    }
+				)
+			}
 		}
 	}
 </script>

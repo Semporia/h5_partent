@@ -123,8 +123,11 @@
     },
     onShow() {
       this.reLoadSize();
-      this.loadData();
+      
     },
+	onLoad() {
+		this.loadData();
+	},
 	onReachBottom() {
 		this.page++;
 		this.loadData();

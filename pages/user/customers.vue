@@ -2,16 +2,19 @@
 	<view>
 		<view id="app">
 			<view id="myGeneralize">
-				
-				<view class="fansWrap">
-					<!-- <p class="ft18">店铺的顾客</p> -->
+				<!-- <view class="codeWrap ft14">
+					我的邀请码:
+					<i class="van-icon van-icon-question"></i>
+					<p class="code ft28">37695</p>
+				</view> -->
+				<view class="fansWrap margin solid radius">
+					<p class="ft18">我的推广用户</p>
 					<ul class="fansList">
 						<li v-for="(item,index) in shop_customers" class="fans flex-jb van-hairline--bottom"   @click="NavTo('/pages/user/partner/partner_accounts')" >
 							<view class="left"><img :src="item.headimgurl">
 								<p class="ft18 van-ellipsis">{{item.nickname}}</p>
 							</view>
 							<view class="right ft12">
-								<p class="ft10 ">{{item.nickname}}</p>
 								<p class="icon-link">{{item.created_at}}</p>
 							</view>
 						</li>
@@ -24,7 +27,6 @@
 	</view>
 </template>
 
-
 <script>
 	export default {
 		data() {
@@ -34,20 +36,38 @@
 		},
 		onShow() {
 			this.reLoadSize();
-			
 		},
 		onLoad() {
+			this.shop_customers=[];
 			this.loadData();
 		},
+		onPullDownRefresh() {
+		  this.page = 1;
+		  console.log("刷新");
+		  this.shop_customers=[];
+		  this.loadData();
+		},
+		onReachBottom() {
+		  this.page = this.page + 1;
+		  this.loadData();
+		},
 		methods: {
-			async loadData(){
-				var _this = this;
-				await this.http.post("/shop_admin/getCustomers",{'shop_id':1}).then(
-					async r => {
-						_this.shop_customers = r.shop_customers;   
-				    }
-				)
-			},
+		  async loadData() {
+		  		await this.http.post("/user/getCustomers", {
+		  			'shop_id': 1,
+					page:this.page,
+		  		}).then(
+		  			async r => {
+						if(this.page>r.page_info.total_page){
+							uni.showToast({
+								title:'没有更多信息'
+							})
+						}
+		  				this.shop_customers = this.shop_customers.concat(r.shop_customers);
+		  			}
+		  		)
+		  	}
+		  ,
 		}
 	}
 </script>
@@ -99,7 +119,7 @@
 		right: -50%;
 		bottom: -50%;
 		left: -50%;
-		border: 0 solid #ebedf0;
+		border: 0 solid var(--border-color);
 		-webkit-transform: scale(.5);
 		transform: scale(.5);
 	}
@@ -110,15 +130,6 @@
 
 	.van-hairline--bottom:after {
 		border-bottom-width: .02667rem;
-	}
-
-	* {
-		margin: 0;
-		padding: 0;
-	}
-
-	* {
-		touch-action: pan-y;
 	}
 
 	img {
@@ -161,7 +172,7 @@
 	}
 
 	#myGeneralize .van-hairline--bottom:after {
-		border-color: #ebebeb;
+		border-color: var(--border-color);
 	}
 
 	#myGeneralize .codeWrap {
@@ -231,6 +242,6 @@
 		font-family: vant-icon;
 		font-style: normal;
 		font-display: auto;
-		src: url(../../../static/fonts/vant-icon-db1de1.woff2) format("woff2"), url(../../../static/fonts/vant-icon-db1de1.woff) format("woff"), url(../../../static/fonts/vant-icon-db1de1.ttf) format("truetype");
+		src: url(@/static/fonts/vant-icon-db1de1.woff2) format("woff2"), url(@/static/fonts/vant-icon-db1de1.woff) format("woff"), url(@/static/fonts/vant-icon-db1de1.ttf) format("truetype");
 	}
 </style>
