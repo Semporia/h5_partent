@@ -12,7 +12,7 @@
 						<p class="couponName ft18 van-ellipsis">{{coupon.title}}</p>
 						<p class="ft10">{{coupon.end_at}}</p>
 						<p class="ft12">可领取：{{activity.can_buy_time}} 次</p>
-						<p class="ft12">已领取：{{activity_records.length}} 次</p>
+						<p class="ft12">已领取：{{activity_record_num}} 次</p>
 					</view>
 					<view class="right ft14">
 						<p class="verticalcenter" @click="getCoupon(coupon)">立<br>即<br>领<br>取</p>
@@ -59,72 +59,49 @@
 				coupon:{},
 				shop:{},
 				activity:{},
-				activity_records:[],
+				activity_record_num:0,
 			}
 		},
 		onLoad(option) {
-			var id = option.id || 0;
-			this.loadData(id);
+			this.loadData(option);
 		},
 		onShow() {
 			this.reLoadSize();
 			
 		},
 		methods: {
-			loadData(id){
-				var _this = this;
-				uni.showLoading({title: '加载中'});
-				_this.post({
-					url: '/index/couponDetail',
-					data: {id:id},
-					success: function(res) {
-						uni.hideLoading();
-						if(res.data.err==0){
-							_this.coupon = res.data.data.coupon;
-							_this.shop = res.data.data.shop;
-							_this.activity = res.data.data.activity;
-							_this.activity_records = res.data.data.activity_records;
+			async loadData(option) {
+					var id = option.id || 0;
+					
+					await this.http.post("/index/couponDetail", {
+						'shop_id': 1,
+						'coupon_id': id,
+					}).then(
+						async r => {
+							this.coupon = r.coupon;
+							this.activity = r.activity;
+							this.shop = r.shop;
+							this.activity_record_num = r.activity_record_num;
 						}
-					}
-				});
-			},
+					)
+				},
+				async getCoupon(option){
+					var id = option.id || 0;
+					
+					await this.http.post("/coupon_api/getCoupon", {
+						'shop_id': 1,
+						'coupon_id': id,
+					}).then(
+						async r => {
+							if(r.user_coupon_id>0){
+								uni.showToast({
+									title:"获取成功"
+								})
+							}
+						}
+					)
+				},
 			
-			getCoupon(coupon){
-				var _this = this;
-				var id = coupon.id || 0;
-				uni.showLoading({title: '加载中'});
-				_this.post({
-					url: '/coupon_api/getCoupon',
-					data: {id:id},
-					success: function(res) {
-						uni.hideLoading();
-						uni.showToast({
-							title:res.data.msg
-						})
-						if(res.data.err==0){
-							
-						}
-					}
-				});
-			},
-			getActivity(activity){
-				var _this = this;
-				var id = activity.id || 0;
-				uni.showLoading({title: '加载中'});
-				_this.post({
-					url: '/coupon_api/getActivity',
-					data: {id:id},
-					success: function(res) {
-						uni.hideLoading();
-						uni.showToast({
-							title:res.data.msg
-						})
-						if(res.data.err==0){
-							
-						}
-					}
-				});
-			},
 		}
 	}
 </script>

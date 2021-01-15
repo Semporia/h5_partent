@@ -131,12 +131,18 @@
 	},
     methods: {
       async loadData() {
-      		var _this = this;
+      		
       		await this.http.post("/index/getActivitys", {
-      			'shop_id': 1
+      			'shop_id': 1,
+				page:this.page,
       		}).then(
       			async r => {
-      				_this.activitys = r.activitys;
+					if(this.page>r.page_info.total_page){
+						uni.showToast({
+							title:'没有更多信息'
+						})
+					}
+      				this.activitys = this.activitys.concat(r.activitys);
       			}
       		)
       	}

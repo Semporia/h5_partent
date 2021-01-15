@@ -99,80 +99,62 @@
 
       }
     },
+	
     onShow() {
       this.reLoadSize();
       this.loadData();
     },
     methods: {
-      loadData() {
-        var _this = this;
-        uni.showLoading({
-          title: '加载中'
-        });
-        _this.post({
-          url: '/index/getHotActivity',
-          data: {},
-          success: function(res) {
-            uni.hideLoading();
-            if (res.data.err == 0) {
-              _this.shop = res.data.data.shop;
-              _this.activity_coupons = res.data.data.activity_coupons;
-              _this.activity = res.data.data.activity;
-              _this.show = true;
-            }
-          }
-        });
+      async loadData(option) {
+        await this.http.post("/index/getHotActivity", {
+        	'shop_id': 1,
+        }).then(
+        	async r => {
+        		this.shop = r.shop;
+      				this.activity_coupons = r.activity_coupons;
+      				this.activity = r.activity;
+      				this.show = true;
+        	}
+        )
       },
 
       goCouponDetail(item) {
         this.NavTo('/pages/public/coupon_detail?id=' + item.id);
       },
 
-      getCoupon(coupon) {
-        var _this = this;
-        var id = coupon.id || 0;
-        uni.showLoading({
-          title: '加载中'
-        });
-        _this.post({
-          url: '/coupon_api/getCoupon',
-          data: {
-            id: id
-          },
-          success: function(res) {
-            uni.hideLoading();
-            uni.showToast({
-              title: res.data.msg
-            })
-            if (res.data.err == 0) {
-
-            }
-          }
-        });
+      async getCoupon(option){
+      	var id = option.id || 0;
+      	
+      	await this.http.post("/coupon_api/getCoupon", {
+      		'shop_id': 1,
+      		'coupon_id': id,
+      	}).then(
+      		async r => {
+      			if(r.user_coupon_id>0){
+      				uni.showToast({
+      					title:"获取成功"
+      				})
+      			}
+      		}
+      	)
       },
-      getActivity(activity) {
-        var _this = this;
-        var id = activity.id || 0;
-        uni.showLoading({
-          title: '加载中'
-        });
-        _this.post({
-          url: '/coupon_api/getActivity',
-          data: {
-            id: id
-          },
-          success: function(res) {
-            uni.hideLoading();
-            uni.showToast({
-              title: res.data.msg
-            })
-            if (res.data.err == 0) {
-
-            }
-          }
-        });
+	  
+      async getActivity(option){
+      	var id = option.id || 0;
+      	
+      	await this.http.post("/coupon_api/getActivity", {
+      		'shop_id': 1,
+      		'activity_id': id,
+      	}).then(
+      		async r => {
+      			if(r.user_coupon_id>0){
+      				uni.showToast({
+      					title:"获取成功"
+      				})
+      			}
+      		}
+      	)
       },
-
 
     }
   }

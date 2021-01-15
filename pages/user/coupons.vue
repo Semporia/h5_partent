@@ -47,35 +47,40 @@
         page: 1,
       }
     },
+	onLoad() {
+		this.loadData();
+	},
     onShow() {
       this.reLoadSize();
-      this.LoadData();
+      
     },
     onPullDownRefresh() {
       this.page = 1;
       console.log("刷新");
-      this.LoadData();
+	  this.coupons=[];
+      this.loadData();
     },
     onReachBottom() {
       this.page = this.page + 1;
-      console.log("加载下一页");
-      // this.LoadData();
+      this.loadData();
     },
     methods: {
-      LoadData() {
-        var _this = this;
-        _this.post({
-          url: '/user/getCouponList',
-          data: {
-            page: _this.page
-          },
-          success: function(res) {
-            if (res.data.err == 0) {
-              _this.coupons = res.data.data.user_coupons;
-            }
-          }
-        });
-      },
+      async loadData() {
+      		await this.http.post("/user/coupons", {
+      			'shop_id': 1,
+				page:this.page,
+      		}).then(
+      			async r => {
+					if(this.page>r.page_info.total_page){
+						uni.showToast({
+							title:'没有更多信息'
+						})
+					}
+      				this.coupons = this.coupons.concat(r.coupons);
+      			}
+      		)
+      	}
+      ,
     }
   }
 </script>
