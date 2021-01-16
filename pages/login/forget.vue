@@ -27,7 +27,7 @@
 					
 					isShowCode
 					codeText="获取重置码"
-					setTime="30"
+					setTime="60"
 					ref="runCode"
 					@setCode="getVerCode()"
 				></wInput>
@@ -65,7 +65,7 @@
 			_this= this;
 		},
 		methods: {
-			getVerCode(){
+			async getVerCode(){
 				//获取验证码
 				if (_this.phoneData.length != 11) {
 				     uni.showToast({
@@ -77,22 +77,19 @@
 				}
 				console.log("获取验证码")
 				this.$refs.runCode.$emit('runCode'); //触发倒计时（一般用于请求成功验证码后调用）
-				uni.showToast({
-				    icon: 'none',
-					position: 'bottom',
-				    title: '模拟倒计时触发'
-				});
 				
-				setTimeout(function(){
-					_this.$refs.runCode.$emit('runCode',0); //假装模拟下需要 终止倒计时
-					uni.showToast({
-					    icon: 'none',
-						position: 'bottom',
-					    title: '模拟倒计时终止'
-					});
-				},3000)
+				
+				await this.http.post("/Sms/send",{
+					'shop_id':1,
+					mobile:_this.phoneData
+				}).then(
+					async r => {
+				       this.$refs.runCode.$emit('runCode'); //触发倒计时（一般用于请求成功验证码后调用）
+				}
+				)
+					
 			},
-			startRePass() {
+			async startRePass() {
 				//重置密码
 				if(this.isRotate){
 					//判断是否加载中，避免重复点击请求
@@ -122,12 +119,30 @@
 				    });
 				    return false;
 				}
-				console.log("重置密码成功")
-				_this.isRotate=true
-				setTimeout(function(){
-					_this.isRotate=false
-				},3000)
 				
+				// console.log("重置密码成功")
+				// _this.isRotate=true
+				// setTimeout(function(){
+				// 	_this.isRotate=false
+				// },3000)
+				
+				await this.http.post("/Auth/reSetPassword",{
+					'shop_id':1,
+					mobile:_this.phoneData,
+					password:_this.passData,
+					code:_this.verCode,
+					
+				}).then(
+					async r => {
+				       _this.isRotate=false;
+					   uni.setStorageSync('user', r.user);
+					   uni.setStorageSync('user_id', r.user.id);
+					   uni.setStorageSync('token', r.token);
+					   uni.navigateTo({
+					     url: '/pages/user/home'
+					   })
+				    }
+				)
 				
 			}
 		}

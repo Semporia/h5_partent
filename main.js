@@ -13,6 +13,9 @@ Vue.config.productionTip = false
 Vue.component('footnav', footnav);
 App.mpType = 'app'
 
+
+
+
 Vue.prototype.reLoadSize = function() {
 	var html = document.getElementsByTagName("html")[0];
 	var body = document.getElementsByTagName("body")[0];
