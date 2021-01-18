@@ -46,7 +46,16 @@ http.interceptor.response(
 		switch (response.data.err) {
 			case 0:
 				return response.data.data;
+				uni.showToast({
+					title: response.data.msg,
+					duration: 200
+				});
 			case 1:
+				uni.showToast({
+					title: response.data.msg,
+					duration: 200
+				});
+			case 402:
 				uni.showToast({
 					title: response.data.msg,
 					duration: 200

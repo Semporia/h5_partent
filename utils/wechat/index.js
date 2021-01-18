@@ -25,6 +25,7 @@ export default {
 				'updateTimelineShareData'
 			];
 			await http.post('/Wechat/config', {
+				wechat_id:2,
 				js_api_params: jsApiList.join(','),
 				url:url, 
 				debug: false 

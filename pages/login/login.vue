@@ -17,12 +17,12 @@
         <view class="login_icon">
           <view class="cuIcon-weixin" @tap="login_weixin"></view>
         </view>
-        <view class="login_icon">
+<!--        <view class="login_icon">
           <view class="cuIcon-weibo" @tap="login_weibo"></view>
         </view>
         <view class="login_icon">
           <view class="cuIcon-github" @tap="login_github"></view>
-        </view>
+        </view> -->
       </view>
 
       <!-- 底部信息 -->
@@ -172,11 +172,7 @@
       },
       login_weixin() {
         //微信登录
-        uni.showToast({
-          icon: 'none',
-          position: 'bottom',
-          title: '...'
-        });
+        this.WechatLogiin('/h5/newhome/#/pages/login/wechat_login_back?is_login=1');
       },
       login_weibo() {
         //微博登录

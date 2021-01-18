@@ -155,7 +155,13 @@
 					username:_this.username,
 				}).then(
 					async r => {
-				       _this.isRotate=false
+				       _this.isRotate=false,
+					   // uni.setStorageSync('user', r.user);
+					   // uni.setStorageSync('user_id', r.user.id);
+					   uni.setStorageSync('token', r.token);
+					   uni.navigateTo({
+					     url: '/pages/user/home'
+					   })
 				    }
 				)
 				

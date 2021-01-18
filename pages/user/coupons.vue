@@ -29,7 +29,7 @@
 				    <p class="ft18">元</p>
 				  </view>
 				
-				  <view class="center" @click="goCouponDetail(item)">
+				  <view class="center" @click="goUserCouponDetail(item)">
 				    <p class="couponName ft18 van-ellipsis">{{item.title}}</p>
 				    <p class="ft10" v-if="item.discount > 0 ">
 				      <span v-if="item.over_money > 0 ">消费满{{item.over_money}}元</span>
@@ -150,6 +150,12 @@
 	  },
 	  hide(){
 		  this.showOrHide = 'hide';
+	  },
+	  goUserCouponDetail(item){
+		  var id = item.id || 0;
+		  uni.navigateTo({
+		    url: '/pages/user/coupon_detail?id='+id
+		  })
 	  }
     }
   }

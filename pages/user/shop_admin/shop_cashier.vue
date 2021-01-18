@@ -18,7 +18,7 @@
             <view class="van-cell__title van-field__label"><span>核销码</span></view>
             <view class="van-cell__value van-field__value">
               <view class="van-field__body"><input type="text" name="hash_code" v-model="hash_code" placeholder="优惠券核销码" class="van-field__control">
-                <view class="get-code">扫码</view>
+                <view class="get-code" @click="scanQr">扫码</view>
               </view>
             </view>
           </view>
@@ -129,6 +129,8 @@
 </template>
 
 <script>
+	import jweixin from '@/utils/wechat/jweixin.js';
+	
   export default {
     data() {
       return {
@@ -146,7 +148,44 @@
     onShow() {
       this.reLoadSize();
     },
+	onLoad() {
+		this.wxConfigH5();
+	},
     methods: {
+		// wxjssdk
+		async wxConfigH5() {
+			if (true) {
+				var jsApiList = [
+					'chooseWXPay',
+					'scanQRCode',
+					'updateAppMessageShareData',
+					'updateTimelineShareData'
+				];
+				await this.http.post('/Wechat/config', {
+					wechat_id:2,
+					js_api_params: jsApiList.join(','),
+					url:window.location.href, 
+					debug: false 
+				})
+				.then(r => {
+					jweixin.config({
+						...r.jssdk_config
+					});
+				});
+			}
+		},
+		
+		scanQr(){
+			var _this = this;
+			jweixin.scanQRCode({
+			    needResult: 1, // 默认为0，扫描结果由微信处理，1则直接返回扫描结果，
+			    scanType: ["qrCode","barCode"], // 可以指定扫二维码还是一维码，默认二者都有
+			    success: function (res) {
+					var result = res.resultStr; // 当needResult 为 1 时，扫码返回的结果
+					_this.hash_code = result;
+				}
+			});
+		},
 		async getUserCoupons(){
 			await this.http.post("/shop_admin/getUserCoupons",{
 				'shop_id':1,

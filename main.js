@@ -7,6 +7,24 @@ import constData from './config/constData.config.js'
 import { http } from '@/utils/request';
 Vue.prototype.http = http;
 
+Vue.prototype.isWechat = function() {
+		// #ifdef H5
+		const ua = window.navigator.userAgent.toLowerCase();
+		if (ua.match(/micromessenger/i) == 'micromessenger') {
+			return true;
+		} else {
+			return false;
+		}
+		// #endif
+}
+
+ Vue.prototype.WechatLogiin = function(backurl){
+	 var url = encodeURIComponent(backurl);
+	 var to_login = "/index/Wechat/getUserinfo?wechat_id=2&redirect_uri="+url;
+	 console.log(to_login);
+	 window.location.href = to_login;
+ }
+
 Vue.prototype.constData = constData;
 // import 'lib-flexible'
 Vue.config.productionTip = false
