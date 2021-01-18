@@ -9,7 +9,9 @@
             <view class="title">{{item.title}}</view>
           </view>
 		  <view class="padding-right padding-bottom-xs padding-left text-content text-color">{{item.shop_name}}</view>
-          <view class="padding-right padding-bottom-xs padding-left text-content text-color">{{item.address}}</view>
+          <view class="padding-right padding-bottom-xs padding-left text-content text-color text-xs">
+            <icon class="icon-dingwei text-blue" type=""></icon>{{item.address}}
+          </view>
           <view class="padding-right padding-left text-content">
             <view class="text-xs text-color">
               <icon class="icon-dian text-green" type=""></icon>开始时间：{{item.start_at}}
