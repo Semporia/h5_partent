@@ -65,6 +65,7 @@
       --tabbar-background-color: #161B22;
       --green: #39B54A;
       --orange: #FF4500;
+      --blue: #0081FF;
     }
   }
   /* 深色主题 */
@@ -82,6 +83,7 @@
       --tabbar-background-color: #161B22;
       --green: #39B54A;
       --orange: #FF4500;
+      --blue: #0081FF;
     }
   }
   .body {
@@ -797,6 +799,10 @@
 
   .text-orange {
     color: var(--orange);
+  }
+  
+  .text-blue {
+    color: var(--blue);
   }
 
   /* tabbar */
