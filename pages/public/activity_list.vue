@@ -9,7 +9,7 @@
             <view class="title">{{item.title}}</view>
           </view>
 		  <view class="padding-right padding-bottom-xs padding-left text-content text-color">{{item.shop_name}}</view>
-          <view class="padding-right padding-bottom-xs padding-left text-content text-color">
+          <view class="padding-right padding-bottom-xs padding-left text-content text-color text-xs">
             <icon class="icon-dingwei text-blue" type=""></icon>{{item.address}}
           </view>
           <view class="padding-right padding-left text-content">
