@@ -86,7 +86,7 @@
       --blue: #0081FF;
     }
   }
-  .body {
+  body {
     color: var(--text-color);
     background-color: var(--Default-background-color) !important;
     min-height: 100vh;
