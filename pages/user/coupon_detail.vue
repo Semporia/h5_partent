@@ -2,8 +2,8 @@
 	<view class="user-coupon">
 		<view class="card" >
 			<view class="user_info">
-				<image class="portrait" :src="user.headimgurl">
-				<view class="nickname">{{user.nickname}}</view>
+				<image class="portrait" :src="shop.share_pic">
+				<view class="nickname">{{shop.shop_name}}</view>
 			</view>
 			<view class="vip">{{coupon.cut_money}}元</view>
 			<view class="bottom">
@@ -18,7 +18,7 @@
 				<image class="img" :src="user.headimgurl" />
 			</view>
 			<h4>余额：{{coupon.has_money}}元</h4>
-				<button class="send" @click="share">赠送给好友</button>
+				<button class="send" @click="toShare">赠送给好友</button>
 				<view class="menu">
 					<view class="title">使用须知</view>
 						<view class="info">
@@ -84,7 +84,7 @@
 			}
 		},
 		onShow() {
-			// this.reLoadSize();
+			this.reSize();
 		},
 		onLoad(options) {
 			var id = options.id||0;
@@ -93,6 +93,16 @@
 			this.initData(options);
 		},
 		methods: {
+			reSize(){
+				var html = document.getElementsByTagName("html")[0];
+				var body = document.getElementsByTagName("body")[0];
+				var width = document.body.offsetWidth; // 获取当前页面的宽度
+				console.log(width);
+				var nowFont = width / 375 * 37.5/ 2; // 通过标签名称来获取元素 
+				html.style.fontSize = nowFont + "px";
+				body.style = "font-size: 12px; overflow: auto;";
+			},
+			
 			hideShareSpec() {
 				this.sharehide = true;
 				setTimeout(() => {
@@ -139,13 +149,22 @@
 					success:function(res){
 						_this.coupon = res.data.data.user_coupon;
 						_this.shop = res.data.data.shop;
-						_this.user = res.data.data.user;
-						
+						_this.user = res.data.data.user;			
+					}
+				});
+			},
+			toShare(){
+				var _this = this;
+				_this.post({
+					url:'/coupon_api/toShareCoupon',
+					data:{user_coupon_id:_this.coupon.id},
+					success:function(res){
+						var sharedata = res.data.data;
 						var shareOption={
-							title: _this.coupon.title , // 分享标题
-							desc: "送你一张优惠券请速领取" , // 分享描述
-							link: "http://h5.zhusutao.com/h5/activity/#/pages/public/share_card?share_code="+_this.share_code+"&user_coupon_id="+_this.coupon.id , // 分享链接
-							imgUrl: _this.coupon.pic , // 分享图标
+							title: sharedata.title , // 分享标题
+							desc: "送你一张优惠券请速领取"+sharedata.title , // 分享描述
+							link: "http://h5.zhusutao.com/h5/newhome/#/pages/public/share_view?share_code="+sharedata.share_code , // 分享链接
+							imgUrl: sharedata.pic , // 分享图标
 							success: function () { 
 							        // 用户确认分享后执行的回调函数
 							},
@@ -153,9 +172,15 @@
 								// 用户取消分享后执行的回调函数
 							}
 						};
+						console.log(sharedata);
 						jweixin.onMenuShareAppMessage(shareOption);
 						jweixin.onMenuShareTimeline(shareOption);
 						
+						
+						uni.showToast({
+							title: "点击右上角分享给好友吧",
+							duration: 3000
+						});
 						
 					}
 				});
@@ -188,6 +213,7 @@
 		margin: 0.625rem auto;
 		overflow: hidden;
 		border-radius: 0.3125rem;
+		background: #ead793;
 		.user_info {
 			display: flex;
 			padding: 0.9375rem;

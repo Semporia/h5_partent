@@ -59,10 +59,13 @@
 				coupon:{},
 				shop:{},
 				activity:{},
+				share_user:{},
+				share_code:"",
 				activity_record_num:0,
 			}
 		},
 		onLoad(option) {
+			this.share_code = option.share_code || "";
 			this.loadData(option);
 		},
 		onShow() {
@@ -71,33 +74,54 @@
 		},
 		methods: {
 			async loadData(option) {
-					var id = option.id || 0;
 					
-					await this.http.post("/index/couponDetail", {
+					
+					
+					// var _this = this;
+					// _this.post({
+					// 	url:'/coupon_api/shareCouponDetail',
+					// 	data:{
+					// 		'shop_id': 1,
+					// 		'share_code': this.share_code,
+					// 	},
+					// 	success:function(res){
+					// 		console.log(res);
+					// 		if(res.data.err == 0){
+					// 			_this.coupon = res.data.data.user_coupon;
+					// 			_this.activity = res.data.data.activity;
+					// 			_this.shop = res.data.data.shop;
+					// 			_this.share_user = res.data.data.share_user;
+					// 		}
+							
+					// 	}
+					// });
+					
+					
+					await this.http.post("/coupon_api/shareCouponDetail", {
 						'shop_id': 1,
-						'coupon_id': id,
+						'share_code': this.share_code,
 					}).then(
 						async r => {
-							this.coupon = r.coupon;
+							console.log(r);
+							this.coupon = r.user_coupon;
 							this.activity = r.activity;
 							this.shop = r.shop;
-							this.activity_record_num = r.activity_record_num;
+							this.share_user = r.share_user;
+							
 						}
 					)
 				},
 				async getCoupon(option){
 					var id = option.id || 0;
 					
-					await this.http.post("/coupon_api/getCoupon", {
+					await this.http.post("/coupon_api/getShareCoupon", {
 						'shop_id': 1,
-						'coupon_id': id,
+						'share_code': this.share_code,
 					}).then(
 						async r => {
-							if(r.user_coupon_id>0){
-								uni.showToast({
-									title:"获取成功"
-								})
-							}
+							uni.showToast({
+								title:"领取成功"
+							})
 						}
 					)
 				},
