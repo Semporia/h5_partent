@@ -49,6 +49,7 @@
     --tabbar-background-color: #161B22;
     --green: #39B54A;
     --orange: #FF4500;
+    --blue: #0081FF;
   }
   /*浅色主题 */
   @media (prefers-color-scheme: light) {
