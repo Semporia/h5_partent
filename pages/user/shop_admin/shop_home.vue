@@ -35,7 +35,7 @@
 					<!-- <view class="vip99 is99 flex-jb">
 						<view class="left flex-jb"><img src="../../../static/img/vip.png">
 							<view class="ft14"><span>欢迎回来！</span>
-								<p class="bold">車总管99会员</p>
+								<p class="bold">99会员</p>
 							</view>
 							<p class="ft13 bcG cfff">领取权益</p>
 						</view>
