@@ -13,14 +13,11 @@
   }
 </script>
 
+<!-- 屏蔽iso 底部按钮 -->
 
-<!-- 
-
-屏蔽iso 底部按钮
 <meta name="x5-fullscreen" content="true">
 <meta name="full-screen" content="yes"> 
 
--->
 <style>
   @import url("@/static/style/common.css");
   @import url("@/static/style/icon.css");
